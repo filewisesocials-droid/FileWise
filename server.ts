@@ -8,7 +8,7 @@ import { INITIAL_TRACKING_ORDERS } from './src/data/tracking.js';
 
 async function startServer() {
   const app = express();
-  const PORT = 3000;
+  const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
 
   app.use(express.json({ limit: '10mb' }));
 
