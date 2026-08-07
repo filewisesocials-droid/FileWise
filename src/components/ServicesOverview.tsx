@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Building2, FileCheck, Languages, Truck, CheckCircle2, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Building2, FileCheck, Languages, Truck, CheckCircle2, ArrowRight, PlaneTakeoff, AlertTriangle } from 'lucide-react';
 
 interface ServicesOverviewProps {
   onSelectService: (serviceName: string) => void;
@@ -8,39 +8,46 @@ interface ServicesOverviewProps {
 export const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onSelectService }) => {
   const services = [
     {
+      icon: PlaneTakeoff,
+      title: 'Visa Assistance & Preparation',
+      tag: 'From South Africa to Any Country',
+      description: 'Comprehensive visa document preparation and legalisation for South Africans travelling, working, studying, or emigrating abroad.',
+      features: ['Consular visa document packing', 'Embassy appointment guidance', 'Verification of support records']
+    },
+    {
       icon: ShieldCheck,
-      title: 'Hague Convention Apostille',
-      tag: '120+ Hague Treaty States',
-      description: 'Direct government legalization stamp issued by Foreign Ministry (FCDO UK, US Dept of State, DFAT Australia) for Hague member nations without embassy seal.',
-      features: ['Official Government Certificate', 'Valid indefinitely overseas', 'Express 24h option available']
+      title: 'DIRCO & High Court Apostille',
+      tag: 'South Africa Hague Apostille',
+      description: 'Official Hague Convention Apostille legalisation issued directly by DIRCO (Pretoria) or South African High Courts for use in 120+ Hague member nations.',
+      features: ['DIRCO Pretoria & High Court seals', 'Valid across Hague member states', 'Express courier submission']
     },
     {
       icon: Building2,
-      title: 'Consular Embassy Attestation',
-      tag: 'Non-Hague Nations (UAE, Qatar, China, Vietnam)',
-      description: 'Comprehensive 3-tier consular authentication sequence: Notary Public ➔ Ministry of Foreign Affairs ➔ Destination Embassy Consular Seal.',
-      features: ['Diplomatic Consular Seal', 'MOFA compliance guaranteed', 'Physical embassy submission']
+      title: 'Embassy Attestation (Non-Hague)',
+      tag: 'UAE, Qatar, Saudi Arabia, China & More',
+      description: 'Full consular legalization sequence for Non-Hague destination countries: SA Notary / High Court ➔ DIRCO Legalisation ➔ Foreign Embassy Attestation in Pretoria.',
+      features: ['Foreign Embassy Pretoria stamps', 'MOFA compliance assured', 'Physical embassy liaison']
     },
     {
       icon: FileCheck,
-      title: 'Notary Public & Solicitor Verification',
-      tag: 'Legal Verification',
-      description: 'Certification of original documents or notarised true copy verification by registered UK/US Law Society solicitors and notary publics.',
-      features: ['Solicitor wet-ink seal', 'Registrar degree verification', 'Certified True Copy stamp']
+      title: 'Notary Public & High Court Verification',
+      tag: 'SA Legal Verification',
+      description: 'Notarial authentication of South African birth/marriage certificates, degrees, police clearances (SAPS), and corporate contracts by registered SA Notaries Public.',
+      features: ['SA Notary Public wet-ink seal', 'Registrar degree verification', 'Certified True Copy verification']
     },
     {
       icon: Languages,
-      title: 'Sworn & Certified Translations',
-      tag: 'Official Court Translators',
-      description: 'Official sworn translations into Arabic, Spanish, French, German, Chinese, Portuguese, Italian, and 40+ languages accepted by foreign ministries.',
-      features: ['Sworn translator stamp (Traductor Jurado)', 'Certificate of Accuracy', 'Direct embassy submission formatting']
+      title: 'Sworn Court Translations',
+      tag: 'Sworn Translators of SA High Court',
+      description: 'Official sworn translations into Arabic, Spanish, French, German, Chinese, Portuguese, Italian, and 40+ languages accepted by international embassies.',
+      features: ['Sworn High Court translator seal', 'Certificate of Accuracy', 'Direct embassy formatting']
     },
     {
       icon: Truck,
-      title: 'Global Express Courier Delivery',
-      tag: 'DHL / FedEx Priority',
-      description: 'Secure tracked door-to-door courier delivery from our secure London/Washington legal vaults directly to your residence or employer overseas.',
-      features: ['Full insurance cover', 'Live GPS tracking', 'Tamper-evident tamper bags']
+      title: 'Door-to-Door Express Courier',
+      tag: 'DHL / FedEx Priority Courier',
+      description: 'Secure tracked door-to-door courier collection anywhere in South Africa (JHB, CPT, DUR, PTA) and priority delivery directly to your overseas destination.',
+      features: ['Collection across SA', 'Global express delivery', 'Live GPS tracking']
     }
   ];
 
@@ -50,13 +57,13 @@ export const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onSelectServ
         
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
-            End-to-End Legalisation Suite
+            South Africa Legalisation Suite
           </span>
           <h2 className="text-3xl font-extrabold font-sans text-slate-900 mt-3">
-            Our Document Attestation & Consular Services
+            Visa &amp; Document Attestation Services
           </h2>
           <p className="text-slate-600 text-sm mt-2">
-            Providing legal verification for personal, academic, legal, and corporate documents worldwide.
+            Providing legal verification and visa support for South African personal, academic, and commercial documents worldwide.
           </p>
         </div>
 
@@ -99,7 +106,7 @@ export const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onSelectServ
                   onClick={() => onSelectService(s.title)}
                   className="w-full bg-slate-100 hover:bg-blue-600 hover:text-white text-slate-800 text-xs font-bold py-2.5 rounded-xl border border-slate-200 transition-all flex items-center justify-center gap-1.5"
                 >
-                  <span>Select & Get Quote</span>
+                  <span>Inquire About Service</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>

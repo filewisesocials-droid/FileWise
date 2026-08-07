@@ -2,50 +2,24 @@ import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { HeroSearch } from './components/HeroSearch';
 import { CountryDirectory } from './components/CountryDirectory';
-import { QuoteCalculator } from './components/QuoteCalculator';
-import { DocumentAiAdvisor } from './components/DocumentAiAdvisor';
+import { InquiryForm } from './components/InquiryForm';
 import { TrackingView } from './components/TrackingView';
 import { ServicesOverview } from './components/ServicesOverview';
 import { FaqSection } from './components/FaqSection';
+import { AboutUs } from './components/AboutUs';
+import { ContactUs } from './components/ContactUs';
+import { TermsAndConditions } from './components/TermsAndConditions';
 import { Footer } from './components/Footer';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'search' | 'calculator' | 'ai' | 'tracking' | 'services' | 'faq'>('search');
+  const [activeTab, setActiveTab] = useState<'search' | 'inquiry' | 'tracking' | 'services' | 'faq' | 'about' | 'terms' | 'contact'>('search');
   
-  const [quoteOrigin, setQuoteOrigin] = useState('GB');
-  const [quoteDest, setQuoteDest] = useState('AE');
-  
-  const [aiOrigin, setAiOrigin] = useState('United Kingdom');
-  const [aiDest, setAiDest] = useState('United Arab Emirates');
-
+  const [inquiryDest, setInquiryDest] = useState('AE');
   const [activeTrackId, setActiveTrackId] = useState('FW-98214');
 
-  const handleSelectPairFromHero = (originCode: string, destCode: string) => {
-    setQuoteOrigin(originCode);
-    setQuoteDest(destCode);
-    setActiveTab('calculator');
-  };
-
-  const handleStartQuote = (originCode: string, destCode: string) => {
-    setQuoteOrigin(originCode);
-    setQuoteDest(destCode);
-    setActiveTab('calculator');
-  };
-
-  const handleAskAiFromHero = (originCode: string, destCode: string) => {
-    setAiOrigin(originCode);
-    setAiDest(destCode);
-    setActiveTab('ai');
-  };
-
-  const handleSelectCountryForQuote = (originCode: string) => {
-    setQuoteOrigin(originCode);
-    setActiveTab('calculator');
-  };
-
-  const handleAskAiForCountry = (countryName: string) => {
-    setAiOrigin(countryName);
-    setActiveTab('ai');
+  const handleStartInquiry = (destCode: string) => {
+    setInquiryDest(destCode);
+    setActiveTab('inquiry');
   };
 
   const handleOpenQuickTrack = (trackId: string) => {
@@ -53,12 +27,12 @@ export default function App() {
     setActiveTab('tracking');
   };
 
-  const handleOrderCreated = (trackId: string) => {
+  const handleInquirySubmitted = (trackId: string) => {
     setActiveTrackId(trackId);
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-amber-500 selection:text-slate-950">
+    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-blue-600 selection:text-white">
       
       {/* Header Navigation */}
       <Header
@@ -72,50 +46,39 @@ export default function App() {
         {activeTab === 'search' && (
           <>
             <HeroSearch
-              onSelectPair={handleSelectPairFromHero}
-              onStartQuote={handleStartQuote}
-              onAskAi={handleAskAiFromHero}
+              onStartInquiry={handleStartInquiry}
             />
 
             <CountryDirectory
-              onSelectCountryForQuote={handleSelectCountryForQuote}
-              onAskAiForCountry={handleAskAiForCountry}
+              onSelectCountryForInquiry={handleStartInquiry}
             />
 
             <ServicesOverview
-              onSelectService={() => setActiveTab('calculator')}
+              onSelectService={() => setActiveTab('inquiry')}
             />
 
             <FaqSection />
           </>
         )}
 
-        {activeTab === 'calculator' && (
-          <QuoteCalculator
-            initialOriginCode={quoteOrigin}
-            initialDestCode={quoteDest}
-            onOrderCreated={handleOrderCreated}
-          />
-        )}
-
-        {activeTab === 'ai' && (
-          <DocumentAiAdvisor
-            initialOrigin={aiOrigin}
-            initialDest={aiDest}
+        {activeTab === 'inquiry' && (
+          <InquiryForm
+            initialDestCode={inquiryDest}
+            onInquirySubmitted={handleInquirySubmitted}
           />
         )}
 
         {activeTab === 'tracking' && (
           <TrackingView
             initialTrackId={activeTrackId}
-            onStartNewQuote={() => setActiveTab('calculator')}
+            onStartNewInquiry={() => setActiveTab('inquiry')}
           />
         )}
 
         {activeTab === 'services' && (
           <>
             <ServicesOverview
-              onSelectService={() => setActiveTab('calculator')}
+              onSelectService={() => setActiveTab('inquiry')}
             />
             <FaqSection />
           </>
@@ -123,6 +86,18 @@ export default function App() {
 
         {activeTab === 'faq' && (
           <FaqSection />
+        )}
+
+        {activeTab === 'about' && (
+          <AboutUs onStartInquiry={() => setActiveTab('inquiry')} />
+        )}
+
+        {activeTab === 'contact' && (
+          <ContactUs onStartInquiry={() => setActiveTab('inquiry')} />
+        )}
+
+        {activeTab === 'terms' && (
+          <TermsAndConditions onStartInquiry={() => setActiveTab('inquiry')} />
         )}
       </main>
 

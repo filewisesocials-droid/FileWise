@@ -5,10 +5,10 @@ import { INITIAL_TRACKING_ORDERS } from '../data/tracking';
 
 interface TrackingViewProps {
   initialTrackId?: string;
-  onStartNewQuote?: () => void;
+  onStartNewInquiry?: () => void;
 }
 
-export const TrackingView: React.FC<TrackingViewProps> = ({ initialTrackId = 'FW-98214', onStartNewQuote }) => {
+export const TrackingView: React.FC<TrackingViewProps> = ({ initialTrackId = 'FW-98214', onStartNewInquiry }) => {
   const [trackInput, setTrackInput] = useState(initialTrackId);
   const [currentOrder, setCurrentOrder] = useState<OrderTrackItem | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -108,14 +108,14 @@ export const TrackingView: React.FC<TrackingViewProps> = ({ initialTrackId = 'FW
               onClick={() => { setTrackInput('FW-98214'); fetchOrder('FW-98214'); }}
               className="bg-blue-50 hover:bg-blue-100 text-blue-700 font-mono font-bold px-2.5 py-1 rounded-lg border border-blue-200"
             >
-              FW-98214 (UK to UAE)
+              FW-98214 (SA to UAE)
             </button>
 
             <button
               onClick={() => { setTrackInput('FW-74309'); fetchOrder('FW-74309'); }}
               className="bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-mono font-bold px-2.5 py-1 rounded-lg border border-emerald-200"
             >
-              FW-74309 (US to Spain)
+              FW-74309 (SA to Spain)
             </button>
           </div>
         </div>

@@ -1,21 +1,17 @@
 import React, { useState, useMemo } from 'react';
-import { Search, ArrowRight, ShieldCheck, FileCheck2, Globe, Sparkles, Clock, AlertTriangle, CheckCircle2, Building2, HelpCircle } from 'lucide-react';
+import { Search, ArrowRight, ShieldCheck, FileCheck2, Globe, Clock, AlertTriangle, CheckCircle2, Building2, HelpCircle } from 'lucide-react';
 import { COUNTRIES, getCountryByCode } from '../data/countries';
-import { calculateRequirement, DOCUMENT_TYPES } from '../data/documents';
-import { Country } from '../types';
+import { calculateRequirement } from '../data/documents';
 
 interface HeroSearchProps {
-  onSelectPair: (originCode: string, destCode: string) => void;
-  onStartQuote: (originCode: string, destCode: string) => void;
-  onAskAi: (originCode: string, destCode: string) => void;
+  onStartInquiry: (destCode: string) => void;
 }
 
-export const HeroSearch: React.FC<HeroSearchProps> = ({ onSelectPair, onStartQuote, onAskAi }) => {
-  const [originCode, setOriginCode] = useState('GB');
+export const HeroSearch: React.FC<HeroSearchProps> = ({ onStartInquiry }) => {
+  const [originCode] = useState('ZA'); // Fixed to South Africa for document legalisation & visas
   const [destCode, setDestCode] = useState('AE');
-  const [selectedDocCategory, setSelectedDocCategory] = useState<string>('ALL');
 
-  const originCountry = useMemo(() => getCountryByCode(originCode), [originCode]);
+  const originCountry = useMemo(() => getCountryByCode('ZA'), []);
   const destCountry = useMemo(() => getCountryByCode(destCode), [destCode]);
 
   const requirement = useMemo(
@@ -24,12 +20,13 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ onSelectPair, onStartQuo
   );
 
   const popularPairs = [
-    { origin: 'GB', dest: 'AE', label: 'UK to UAE (Work/Visa)' },
-    { origin: 'US', dest: 'ES', label: 'US to Spain (Non-Lucrative Visa)' },
-    { origin: 'CA', dest: 'CN', label: 'Canada to China (Work)' },
-    { origin: 'IN', dest: 'QA', label: 'India to Qatar (Attestation)' },
-    { origin: 'AU', dest: 'SA', label: 'Australia to Saudi Arabia' },
-    { origin: 'GB', dest: 'DE', label: 'UK to Germany (Hague Apostille)' }
+    { origin: 'ZA', dest: 'AE', label: 'SA to UAE 🇦🇪 (Work/Residence)' },
+    { origin: 'ZA', dest: 'GB', label: 'SA to UK 🇬🇧 (Ancestry/Work)' },
+    { origin: 'ZA', dest: 'ES', label: 'SA to Spain 🇪🇸 (Digital Nomad)' },
+    { origin: 'ZA', dest: 'QA', label: 'SA to Qatar 🇶🇦 (Attestation)' },
+    { origin: 'ZA', dest: 'SA', label: 'SA to Saudi Arabia 🇸🇦 (Apostille)' },
+    { origin: 'ZA', dest: 'DE', label: 'SA to Germany 🇩🇪 (Blue Card)' },
+    { origin: 'ZA', dest: 'NL', label: 'SA to Netherlands 🇳🇱 (Work)' }
   ];
 
   return (
@@ -43,15 +40,15 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ onSelectPair, onStartQuo
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4 shadow-sm">
             <Globe className="w-3.5 h-3.5 text-blue-600" />
-            <span>Global Document Legalisation & Country Requirement Engine</span>
+            <span>South Africa Document Legalisation &amp; Visa Service</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 font-sans leading-tight">
-            Document Legalisation <br className="hidden sm:inline" /><span className="text-blue-600">Made Simple.</span>
+            Document Legalisation &amp; Visas <br className="hidden sm:inline" /><span className="text-blue-600">From South Africa.</span>
           </h1>
 
           <p className="mt-4 text-slate-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            Search 150+ origin and destination countries. Instantly verify Hague Apostille status, embassy attestation workflows, fees, and standard turnaround times.
+            Legalise South African documents and prepare visas for any country worldwide. DIRCO Apostilles, High Court legalisation, and embassy attestation.
           </p>
         </div>
 
@@ -60,65 +57,40 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ onSelectPair, onStartQuo
           
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
             
-            {/* Origin Country Selection */}
-            <div className="md:col-span-5 bg-slate-50 p-4 rounded-xl border border-slate-200">
+            {/* Origin Country (Fixed to South Africa) */}
+            <div className="md:col-span-5 bg-slate-50 p-4 rounded-xl border border-blue-200">
               <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 flex items-center justify-between">
-                <span>1. Where was document issued?</span>
-                <span className="text-[10px] text-slate-400 font-normal">Origin Country</span>
+                <span>1. Document Origin (Fixed)</span>
+                <span className="text-[10px] text-blue-600 font-bold bg-blue-50 px-1.5 py-0.5 rounded border border-blue-200">South Africa</span>
               </label>
 
-              <div className="relative">
-                <select
-                  value={originCode}
-                  onChange={(e) => setOriginCode(e.target.value)}
-                  className="w-full bg-white border border-slate-200 text-slate-900 rounded-lg px-3.5 py-2.5 text-sm sm:text-base font-semibold focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 cursor-pointer appearance-none pr-8 shadow-sm"
-                >
-                  {COUNTRIES.map((c) => (
-                    <option key={`origin-${c.code}`} value={c.code}>
-                      {c.flag} {c.name} {c.hagueMember ? '(Hague)' : '(Non-Hague)'}
-                    </option>
-                  ))}
-                </select>
-                <div className="pointer-events-none absolute right-3 top-3.5 text-slate-400 text-xs">▼</div>
+              <div className="w-full bg-white border border-slate-200 text-slate-900 rounded-lg px-3.5 py-2.5 text-sm sm:text-base font-bold flex items-center justify-between shadow-sm">
+                <span className="flex items-center gap-2">
+                  <span className="text-xl">🇿🇦</span> South Africa (ZA)
+                </span>
+                <span className="text-xs bg-slate-100 text-slate-600 font-normal px-2 py-0.5 rounded">Hague Member</span>
               </div>
 
               <div className="mt-2.5 flex items-center justify-between text-xs text-slate-500">
-                <span className="flex items-center gap-1">
-                  {originCountry.hagueMember ? (
-                    <span className="text-emerald-600 font-medium flex items-center gap-1">
-                      <CheckCircle2 className="w-3.5 h-3.5" /> Hague Member
-                    </span>
-                  ) : (
-                    <span className="text-amber-600 font-medium flex items-center gap-1">
-                      <AlertTriangle className="w-3.5 h-3.5" /> Embassy Legalisation
-                    </span>
-                  )}
+                <span className="text-emerald-600 font-medium flex items-center gap-1">
+                  <CheckCircle2 className="w-3.5 h-3.5" /> High Court / DIRCO Apostille
                 </span>
-                <span>Std: {originCountry.standardProcessingDays} days</span>
+                <span>Std: ~5 days</span>
               </div>
             </div>
 
-            {/* Swap Arrow */}
-            <div className="md:col-span-2 flex justify-center py-1">
-              <button
-                type="button"
-                onClick={() => {
-                  const temp = originCode;
-                  setOriginCode(destCode);
-                  setDestCode(temp);
-                }}
-                className="w-10 h-10 rounded-full bg-slate-100 hover:bg-blue-600 hover:text-white text-slate-600 transition-all flex items-center justify-center shadow border border-slate-200"
-                title="Swap origin and destination"
-              >
+            {/* Arrow Indicator */}
+            <div className="md:col-span-2 flex flex-col items-center justify-center py-1 text-center">
+              <div className="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center font-bold text-xs shadow-sm">
                 <ArrowRight className="w-5 h-5 md:rotate-0 rotate-90" />
-              </button>
+              </div>
             </div>
 
-            {/* Destination Country Selection */}
+            {/* Destination Country Selection (Worldwide) */}
             <div className="md:col-span-5 bg-slate-50 p-4 rounded-xl border border-slate-200">
               <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 flex items-center justify-between">
-                <span>2. Where will it be used?</span>
-                <span className="text-[10px] text-slate-400 font-normal">Destination Country</span>
+                <span>2. Destination Country</span>
+                <span className="text-[10px] text-slate-400 font-normal">Any Country Worldwide</span>
               </label>
 
               <div className="relative">
@@ -127,9 +99,9 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ onSelectPair, onStartQuo
                   onChange={(e) => setDestCode(e.target.value)}
                   className="w-full bg-white border border-slate-200 text-slate-900 rounded-lg px-3.5 py-2.5 text-sm sm:text-base font-semibold focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 cursor-pointer appearance-none pr-8 shadow-sm"
                 >
-                  {COUNTRIES.map((c) => (
+                  {COUNTRIES.filter(c => c.code !== 'ZA').map((c) => (
                     <option key={`dest-${c.code}`} value={c.code}>
-                      {c.flag} {c.name} {c.hagueMember ? '(Hague)' : '(Non-Hague)'}
+                      {c.flag} {c.name} {c.hagueMember ? '(Hague Apostille)' : '(Non-Hague Embassy)'}
                     </option>
                   ))}
                 </select>
@@ -144,11 +116,11 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ onSelectPair, onStartQuo
                     </span>
                   ) : (
                     <span className="text-amber-600 font-medium flex items-center gap-1">
-                      <AlertTriangle className="w-3.5 h-3.5" /> Embassy Legalisation
+                      <AlertTriangle className="w-3.5 h-3.5" /> Embassy Attestation Required
                     </span>
                   )}
                 </span>
-                <span>Embassy Fee: ~R${destCountry.embassyAttestationFeeZAR} ZAR</span>
+                <span>Proc: ~{destCountry.standardProcessingDays} days</span>
               </div>
             </div>
 
@@ -156,16 +128,13 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ onSelectPair, onStartQuo
 
           {/* Quick Popular Pairs Chips */}
           <div className="mt-5 pt-4 border-t border-slate-100 flex flex-wrap items-center gap-2 text-xs">
-            <span className="text-slate-400 font-semibold uppercase tracking-wider text-[10px]">Popular routes:</span>
+            <span className="text-slate-400 font-semibold uppercase tracking-wider text-[10px]">Popular International Routes:</span>
             {popularPairs.map((pair, idx) => (
               <button
                 key={idx}
-                onClick={() => {
-                  setOriginCode(pair.origin);
-                  setDestCode(pair.dest);
-                }}
+                onClick={() => setDestCode(pair.dest)}
                 className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-all ${
-                  originCode === pair.origin && destCode === pair.dest
+                  destCode === pair.dest
                     ? 'bg-blue-600 text-white font-bold border-blue-600 shadow-sm'
                     : 'bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200'
                 }`}
@@ -193,38 +162,27 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ onSelectPair, onStartQuo
               <div className="mt-2 flex flex-wrap items-center gap-3 text-xs">
                 {requirement.isHagueToHague ? (
                   <span className="bg-emerald-50 text-emerald-700 border border-emerald-200 font-semibold px-3 py-1 rounded-full flex items-center gap-1">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> HAGUE APOSTILLE VALID (1-STEP)
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> HAGUE APOSTILLE VALID (DIRCO / HIGH COURT)
                   </span>
                 ) : (
                   <span className="bg-amber-50 text-amber-800 border border-amber-200 font-semibold px-3 py-1 rounded-full flex items-center gap-1">
-                    <Building2 className="w-3.5 h-3.5 text-amber-600" /> FULL CONSULAR EMBASSY LEGALISATION REQUIRED
+                    <Building2 className="w-3.5 h-3.5 text-amber-600" /> EMBASSY ATTESTATION REQUIRED (PRETORIA)
                   </span>
                 )}
 
                 <span className="text-slate-500 flex items-center gap-1">
-                  <Clock className="w-3.5 h-3.5 text-slate-400" /> Standard: ~{requirement.totalEstimatedDaysStandard} business days
-                </span>
-                <span className="text-slate-600 font-mono font-semibold">
-                  Est. Base Fee: R${requirement.totalEstimatedFeeZAR.toLocaleString()} ZAR
+                  <Clock className="w-3.5 h-3.5 text-slate-400" /> Est. Turnaround: ~{requirement.totalEstimatedDaysStandard} business days
                 </span>
               </div>
             </div>
 
             <div className="flex flex-wrap items-center gap-2.5">
               <button
-                onClick={() => onStartQuote(originCode, destCode)}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition-all shadow-md shadow-blue-200 flex items-center gap-1.5"
+                onClick={() => onStartInquiry(destCode)}
+                className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-5 py-3 rounded-xl transition-all shadow-md shadow-blue-200 flex items-center gap-1.5"
               >
                 <FileCheck2 className="w-4 h-4" />
-                <span>Calculate Precise Quote</span>
-              </button>
-
-              <button
-                onClick={() => onAskAi(originCode, destCode)}
-                className="bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs px-3.5 py-2.5 rounded-xl transition-all flex items-center gap-1.5"
-              >
-                <Sparkles className="w-4 h-4 text-blue-400" />
-                <span>Ask AI Assistant</span>
+                <span>Inquire For Processing</span>
               </button>
             </div>
           </div>

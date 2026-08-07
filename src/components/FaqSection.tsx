@@ -4,24 +4,28 @@ import { HelpCircle, ChevronDown, ShieldCheck } from 'lucide-react';
 export const FaqSection: React.FC = () => {
   const faqs = [
     {
+      q: 'Which countries do you assist with for visas and document legalisation?',
+      a: 'FileWise assists with document legalisation (via DIRCO Pretoria or High Courts) and visa document preparation for destination countries around the world including the UK, UAE, USA, Europe, Qatar, Saudi Arabia, China, and 120+ nations worldwide.'
+    },
+    {
+      q: 'How does DIRCO Apostille and High Court legalisation work in South Africa?',
+      a: 'South Africa is a member of the 1961 Hague Apostille Convention. Public documents issued in South Africa (such as Home Affairs Birth/Marriage certificates, SAPS Police Clearance, or High Court documents) receive a DIRCO or High Court Apostille stamp. If your destination country is also a Hague member (e.g., UK, Spain, Germany), no embassy attestation is required. If the destination country is non-Hague (e.g., UAE, Qatar, Kuwait), full embassy attestation in Pretoria is required following DIRCO legalisation.'
+    },
+    {
       q: 'What is the difference between an Apostille and Embassy Legalisation?',
-      a: 'An Apostille is an official authentication stamp issued under the 1961 Hague Convention. If both the country issuing the document and the destination country are Hague members (e.g., UK to Spain, US to Germany, Canada to France), only a single Apostille is needed. If either country is NOT a Hague member (e.g., UK to UAE, US to Qatar, India to Kuwait), full Embassy Legalisation is required (Notary ➔ Foreign Ministry ➔ Embassy Seal).'
+      a: 'An Apostille is an official authentication stamp issued under the 1961 Hague Convention. If both South Africa and the destination country are Hague members (e.g., South Africa to Spain, UK, or Germany), only a single Apostille is needed. If the destination country is NOT a Hague member (e.g., South Africa to UAE, Qatar, or Kuwait), full Embassy Legalisation in Pretoria is required (SA Notary ➔ High Court / DIRCO ➔ Foreign Embassy Seal).'
     },
     {
       q: 'Do I need to send original documents or can digital scans be apostilled?',
-      a: 'This depends on the document type. Vital records (Birth, Marriage, Death certificates) must generally be original certified copies issued by the Registrar. Academic degrees and commercial contracts can frequently be legalised on solicitor-certified true copies without sending the original parchment.'
+      a: 'Home Affairs certificates and SAPS Police Clearances generally require physical original documents or official DIRCO-verified copies. Academic degrees and commercial documents can often be notarised by an SA Notary Public on certified true copies.'
     },
     {
-      q: 'How long does document legalisation take?',
-      a: 'Standard processing for a Hague Apostille takes 4-6 business days. Express service takes 24-48 hours. Embassy attestation for non-Hague nations (such as UAE, Qatar, Saudi Arabia, or China) typically takes 7-10 business days due to embassy appointment backlogs.'
+      q: 'How long does document legalisation in South Africa take?',
+      a: 'DIRCO standard processing typically takes 5 to 10 business days. High Court Apostilles can be completed in 24 to 48 hours. Embassy attestation for non-Hague nations (such as UAE, Qatar, or Saudi Arabia in Pretoria) typically takes 5-8 business days.'
     },
     {
-      q: 'Will my legalised document ever expire?',
-      a: 'An Apostille stamp itself does not have an expiration date. However, certain foreign authorities (especially for work visas or police clearance checks in Middle Eastern or Asian countries) may require police records or medical certificates to be legalised within 3 to 6 months of issuance.'
-    },
-    {
-      q: 'Can Filewise handle sworn translations into Arabic, Spanish, or Chinese?',
-      a: 'Yes! We provide official Sworn and Certified Translations by registered legal translators. In many countries (such as Spain or UAE), translations must be completed by a sworn court translator (Traductor Jurado) to be valid.'
+      q: 'Can Filewise handle sworn translations into Arabic, Spanish, French, or German?',
+      a: 'Yes! We work directly with Sworn Translators registered with the High Court of South Africa. Official sworn court translations are provided with an official stamp and Certificate of Accuracy accepted by foreign embassies.'
     }
   ];
 

@@ -11,10 +11,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['London', 'Edinburgh'],
     standardProcessingDays: 4,
     expressProcessingDays: 1,
-    apostilleFeeZAR: 990,
-    embassyAttestationFeeZAR: 2160,
-    solicitorFeeZAR: 810,
-    translationFeePerPageZAR: 630,
     recommendedSteps: [
       'Solicitor or Notary Public verification of original document or copy',
       'Foreign, Commonwealth & Development Office (FCDO) Legalisation / Apostille stamp',
@@ -35,10 +31,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Washington DC', 'New York', 'Los Angeles', 'Chicago', 'Houston'],
     standardProcessingDays: 5,
     expressProcessingDays: 2,
-    apostilleFeeZAR: 1170,
-    embassyAttestationFeeZAR: 2520,
-    solicitorFeeZAR: 900,
-    translationFeePerPageZAR: 720,
     recommendedSteps: [
       'State Notary Public notarisation',
       'County Clerk authentication (in select US States)',
@@ -58,10 +50,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Abu Dhabi', 'Dubai'],
     standardProcessingDays: 7,
     expressProcessingDays: 3,
-    apostilleFeeZAR: 0,
-    embassyAttestationFeeZAR: 4500,
-    solicitorFeeZAR: 1080,
-    translationFeePerPageZAR: 810,
     specialRequirements: [
       'Requires full Embassy Legalisation (Non-Hague country)',
       'Final MOFA (Ministry of Foreign Affairs) stamp required upon arrival in UAE'
@@ -86,10 +74,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Ottawa', 'Toronto', 'Vancouver', 'Montreal'],
     standardProcessingDays: 6,
     expressProcessingDays: 2,
-    apostilleFeeZAR: 1080,
-    embassyAttestationFeeZAR: 2340,
-    solicitorFeeZAR: 900,
-    translationFeePerPageZAR: 630,
     recommendedSteps: [
       'Canadian Notary Public or Commissioner for Oaths authentication',
       'Global Affairs Canada (GAC) or Provincial Authentication Office Apostille',
@@ -109,10 +93,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Canberra', 'Sydney', 'Melbourne'],
     standardProcessingDays: 5,
     expressProcessingDays: 2,
-    apostilleFeeZAR: 1260,
-    embassyAttestationFeeZAR: 2700,
-    solicitorFeeZAR: 990,
-    translationFeePerPageZAR: 720,
     recommendedSteps: [
       'Australian Notary Public verification',
       'Department of Foreign Affairs and Trade (DFAT) Apostille stamp',
@@ -132,10 +112,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Madrid', 'Barcelona'],
     standardProcessingDays: 4,
     expressProcessingDays: 1,
-    apostilleFeeZAR: 900,
-    embassyAttestationFeeZAR: 1800,
-    solicitorFeeZAR: 720,
-    translationFeePerPageZAR: 720,
     specialRequirements: ['Sworn Spanish Translation (Traducción Jurada) required for official submission'],
     recommendedSteps: [
       'Origin country Apostille',
@@ -155,10 +131,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Doha'],
     standardProcessingDays: 8,
     expressProcessingDays: 3,
-    apostilleFeeZAR: 0,
-    embassyAttestationFeeZAR: 3960,
-    solicitorFeeZAR: 1080,
-    translationFeePerPageZAR: 810,
     specialRequirements: [
       'University degrees require a verification letter directly from the university sent to Qatar Embassy',
       'Commercial documents require Chamber of Commerce stamp'
@@ -183,10 +155,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Riyadh', 'Jeddah'],
     standardProcessingDays: 6,
     expressProcessingDays: 2,
-    apostilleFeeZAR: 1080,
-    embassyAttestationFeeZAR: 2880,
-    solicitorFeeZAR: 900,
-    translationFeePerPageZAR: 720,
     specialRequirements: ['Saudi Arabia joined Hague Apostille Convention in December 2022! Most documents now only require an Apostille.'],
     recommendedSteps: [
       'Notary verification',
@@ -208,10 +176,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Beijing', 'Shanghai', 'Guangzhou'],
     standardProcessingDays: 5,
     expressProcessingDays: 2,
-    apostilleFeeZAR: 1080,
-    embassyAttestationFeeZAR: 2700,
-    solicitorFeeZAR: 900,
-    translationFeePerPageZAR: 720,
     specialRequirements: ['China officially entered the Hague Apostille Convention in November 2023. Apostilles are now accepted across mainland China!'],
     recommendedSteps: [
       'Notarisation / Solicitor certification in document issuing country',
@@ -232,10 +196,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['New Delhi', 'Mumbai'],
     standardProcessingDays: 5,
     expressProcessingDays: 2,
-    apostilleFeeZAR: 810,
-    embassyAttestationFeeZAR: 1980,
-    solicitorFeeZAR: 630,
-    translationFeePerPageZAR: 540,
     recommendedSteps: [
       'Home Department / SDM attestation',
       'Ministry of External Affairs (MEA) Apostille stamp',
@@ -255,10 +215,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Berlin', 'Frankfurt', 'Munich'],
     standardProcessingDays: 4,
     expressProcessingDays: 1,
-    apostilleFeeZAR: 900,
-    embassyAttestationFeeZAR: 1980,
-    solicitorFeeZAR: 810,
-    translationFeePerPageZAR: 720,
     recommendedSteps: [
       'Pre-authentication by local state authority (Regierungspräsidium)',
       'Federal Foreign Office / State Court Apostille',
@@ -278,10 +234,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Paris', 'Lyon'],
     standardProcessingDays: 4,
     expressProcessingDays: 1,
-    apostilleFeeZAR: 900,
-    embassyAttestationFeeZAR: 1890,
-    solicitorFeeZAR: 720,
-    translationFeePerPageZAR: 720,
     recommendedSteps: [
       'Court of Appeal (Cour d’Appel) Apostille',
       'Sworn French Translation (Traducteur Assermenté)'
@@ -300,10 +252,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['The Hague', 'Amsterdam'],
     standardProcessingDays: 3,
     expressProcessingDays: 1,
-    apostilleFeeZAR: 810,
-    embassyAttestationFeeZAR: 1800,
-    solicitorFeeZAR: 720,
-    translationFeePerPageZAR: 630,
     recommendedSteps: [
       'District Court (Rechtbank) Apostille',
       'Certified Dutch/English Translation'
@@ -322,10 +270,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Rome', 'Milan'],
     standardProcessingDays: 4,
     expressProcessingDays: 1,
-    apostilleFeeZAR: 900,
-    embassyAttestationFeeZAR: 1980,
-    solicitorFeeZAR: 720,
-    translationFeePerPageZAR: 720,
     recommendedSteps: [
       'Prefettura or Procura della Repubblica Apostille stamp',
       'Sworn Italian Translation (Traduzione Giurata)'
@@ -344,10 +288,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Dublin'],
     standardProcessingDays: 4,
     expressProcessingDays: 1,
-    apostilleFeeZAR: 900,
-    embassyAttestationFeeZAR: 1980,
-    solicitorFeeZAR: 720,
-    translationFeePerPageZAR: 630,
     recommendedSteps: [
       'Notary Public / Practising Solicitor authentication',
       'Department of Foreign Affairs (DFA) Apostille',
@@ -367,10 +307,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Singapore'],
     standardProcessingDays: 3,
     expressProcessingDays: 1,
-    apostilleFeeZAR: 990,
-    embassyAttestationFeeZAR: 2160,
-    solicitorFeeZAR: 810,
-    translationFeePerPageZAR: 630,
     recommendedSteps: [
       'Singapore Academy of Law (SAL) e-Apostille or physical Apostille',
       'Legalization by Destination Embassy if non-Hague'
@@ -389,10 +325,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Tokyo', 'Osaka'],
     standardProcessingDays: 5,
     expressProcessingDays: 2,
-    apostilleFeeZAR: 990,
-    embassyAttestationFeeZAR: 2340,
-    solicitorFeeZAR: 900,
-    translationFeePerPageZAR: 720,
     recommendedSteps: [
       'Ministry of Foreign Affairs of Japan (MOFA) Apostille',
       'Japanese certified translation'
@@ -411,10 +343,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Seoul'],
     standardProcessingDays: 4,
     expressProcessingDays: 1,
-    apostilleFeeZAR: 900,
-    embassyAttestationFeeZAR: 2160,
-    solicitorFeeZAR: 810,
-    translationFeePerPageZAR: 630,
     recommendedSteps: [
       'Notarization by Korean Notary Public',
       'Ministry of Foreign Affairs (MOFA) Apostille',
@@ -434,10 +362,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Mexico City', 'Guadalajara'],
     standardProcessingDays: 5,
     expressProcessingDays: 2,
-    apostilleFeeZAR: 900,
-    embassyAttestationFeeZAR: 1980,
-    solicitorFeeZAR: 720,
-    translationFeePerPageZAR: 630,
     recommendedSteps: [
       'Secretaría de Gobernación or State Apostille',
       'Sworn Spanish translation by Perito Traductor'
@@ -456,10 +380,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Brasília', 'São Paulo', 'Rio de Janeiro'],
     standardProcessingDays: 5,
     expressProcessingDays: 2,
-    apostilleFeeZAR: 990,
-    embassyAttestationFeeZAR: 2160,
-    solicitorFeeZAR: 810,
-    translationFeePerPageZAR: 630,
     recommendedSteps: [
       'Cartório Notarial Apostille (Apostila de Haia)',
       'Sworn Portuguese translation (Tradução Juramentada)'
@@ -477,10 +397,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Hanoi', 'Ho Chi Minh City'],
     standardProcessingDays: 7,
     expressProcessingDays: 3,
-    apostilleFeeZAR: 0,
-    embassyAttestationFeeZAR: 3240,
-    solicitorFeeZAR: 900,
-    translationFeePerPageZAR: 630,
     specialRequirements: ['Non-Hague country. Full consular authentication via Vietnam Embassy is required.'],
     recommendedSteps: [
       'Notarization in origin country',
@@ -501,10 +417,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Cairo', 'Alexandria'],
     standardProcessingDays: 8,
     expressProcessingDays: 3,
-    apostilleFeeZAR: 0,
-    embassyAttestationFeeZAR: 3420,
-    solicitorFeeZAR: 900,
-    translationFeePerPageZAR: 630,
     specialRequirements: ['Egyptian Embassy consular seal and MOFA Cairo attestation required.'],
     recommendedSteps: [
       'Origin country Notary verification',
@@ -526,10 +438,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Pretoria', 'Cape Town', 'Johannesburg'],
     standardProcessingDays: 5,
     expressProcessingDays: 2,
-    apostilleFeeZAR: 900,
-    embassyAttestationFeeZAR: 2070,
-    solicitorFeeZAR: 720,
-    translationFeePerPageZAR: 630,
     recommendedSteps: [
       'High Court or DIRCO (Department of International Relations and Cooperation) Apostille',
       'Destination Embassy (if destination non-Hague)'
@@ -547,10 +455,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Kuwait City'],
     standardProcessingDays: 8,
     expressProcessingDays: 3,
-    apostilleFeeZAR: 0,
-    embassyAttestationFeeZAR: 4140,
-    solicitorFeeZAR: 990,
-    translationFeePerPageZAR: 720,
     specialRequirements: ['Full Embassy Legalisation required. Commercial invoices must be stamped by Arab Chamber of Commerce.'],
     recommendedSteps: [
       'Notary Public certification',
@@ -572,10 +476,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Muscat'],
     standardProcessingDays: 5,
     expressProcessingDays: 2,
-    apostilleFeeZAR: 990,
-    embassyAttestationFeeZAR: 2700,
-    solicitorFeeZAR: 810,
-    translationFeePerPageZAR: 630,
     recommendedSteps: [
       'Origin Country Apostille',
       'Arabic Certified Translation',
@@ -595,10 +495,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Manila', 'Cebu'],
     standardProcessingDays: 5,
     expressProcessingDays: 2,
-    apostilleFeeZAR: 810,
-    embassyAttestationFeeZAR: 1800,
-    solicitorFeeZAR: 630,
-    translationFeePerPageZAR: 540,
     recommendedSteps: [
       'DFA (Department of Foreign Affairs) Apostille (Red Ribbon)',
       'Notarial authentication'
@@ -616,10 +512,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Bangkok'],
     standardProcessingDays: 7,
     expressProcessingDays: 3,
-    apostilleFeeZAR: 0,
-    embassyAttestationFeeZAR: 2880,
-    solicitorFeeZAR: 810,
-    translationFeePerPageZAR: 630,
     specialRequirements: ['Non-Hague country. Legalisation via Royal Thai Embassy required.'],
     recommendedSteps: [
       'Origin Notary verification',
@@ -641,10 +533,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Wellington', 'Auckland'],
     standardProcessingDays: 4,
     expressProcessingDays: 1,
-    apostilleFeeZAR: 990,
-    embassyAttestationFeeZAR: 2250,
-    solicitorFeeZAR: 810,
-    translationFeePerPageZAR: 630,
     recommendedSteps: [
       'Internal Affairs (Authentication Unit) Apostille',
       'Notary Public certification'
@@ -663,10 +551,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Bern', 'Zurich', 'Geneva'],
     standardProcessingDays: 3,
     expressProcessingDays: 1,
-    apostilleFeeZAR: 900,
-    embassyAttestationFeeZAR: 1980,
-    solicitorFeeZAR: 810,
-    translationFeePerPageZAR: 720,
     recommendedSteps: [
       'Cantonal Chancellery (Staatskanzlei) Apostille',
       'Certified German/French/Italian translation'
@@ -685,10 +569,6 @@ export const COUNTRIES: Country[] = [
     embassyInKeyCities: ['Stockholm'],
     standardProcessingDays: 4,
     expressProcessingDays: 1,
-    apostilleFeeZAR: 900,
-    embassyAttestationFeeZAR: 1980,
-    solicitorFeeZAR: 720,
-    translationFeePerPageZAR: 630,
     recommendedSteps: [
       'Notarius Publicus Apostille',
       'Certified Swedish translation'

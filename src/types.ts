@@ -1,7 +1,7 @@
 export type HagueStatus = 'MEMBER' | 'NON_MEMBER' | 'PARTIAL';
 
 export interface Country {
-  code: string; // ISO 2-letter code e.g. 'GB', 'US', 'AE'
+  code: string; // ISO 2-letter code e.g. 'ZA', 'GB', 'US', 'AE'
   name: string;
   flag: string; // emoji or flag image
   region: 'Europe' | 'Americas' | 'Asia' | 'Middle East' | 'Africa' | 'Oceania';
@@ -10,10 +10,6 @@ export interface Country {
   embassyInKeyCities: string[];
   standardProcessingDays: number;
   expressProcessingDays: number;
-  apostilleFeeZAR: number;
-  embassyAttestationFeeZAR: number;
-  solicitorFeeZAR: number;
-  translationFeePerPageZAR: number;
   specialRequirements?: string[];
   recommendedSteps: string[];
   popularForWorkVisas: boolean;
@@ -30,7 +26,6 @@ export interface DocumentTypeInfo {
   description: string;
   requiresNotaryFirst: boolean;
   requiresSolicitorVerification: boolean;
-  typicalFeeZAR: number;
   sampleName: string;
 }
 
@@ -45,29 +40,11 @@ export interface LegalisationRequirementResult {
     description: string;
     authority: string;
     estimatedDays: number;
-    estimatedFeeZAR: number;
     isMandatory: boolean;
   }[];
   totalEstimatedDaysStandard: number;
   totalEstimatedDaysExpress: number;
-  totalEstimatedFeeZAR: number;
   notes: string[];
-}
-
-export interface QuoteSelection {
-  originCode: string;
-  destinationCode: string;
-  documents: {
-    typeId: string;
-    quantity: number;
-    title?: string;
-  }[];
-  speed: 'STANDARD' | 'EXPRESS' | 'SUPER_EXPRESS';
-  needTranslation: boolean;
-  translationPages: number;
-  needSolicitorCertification: boolean;
-  needReturnCourier: boolean;
-  courierDestination: string;
 }
 
 export interface OrderTrackItem {
@@ -92,11 +69,3 @@ export interface OrderTrackItem {
   }[];
 }
 
-export interface AiChatMessage {
-  id: string;
-  sender: 'user' | 'assistant';
-  text: string;
-  timestamp: string;
-  groundingSources?: { title: string; url: string }[];
-  suggestedActions?: string[];
-}
