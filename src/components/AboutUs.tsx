@@ -33,16 +33,16 @@ export const AboutUs: React.FC<AboutUsProps> = ({ onStartInquiry }) => {
             <div className="text-xs text-slate-600 font-medium">Hague Member Countries Supported</div>
           </div>
           <div className="bg-white border border-slate-200 p-6 rounded-2xl text-center space-y-1 shadow-sm">
-            <div className="text-3xl sm:text-4xl font-extrabold text-blue-600">100%</div>
-            <div className="text-xs text-slate-600 font-medium">Embassy Acceptance Guarantee</div>
+            <div className="text-3xl sm:text-4xl font-extrabold text-blue-600">Strict</div>
+            <div className="text-xs text-slate-600 font-medium">DIRCO &amp; Consular Verification</div>
           </div>
           <div className="bg-white border border-slate-200 p-6 rounded-2xl text-center space-y-1 shadow-sm">
             <div className="text-3xl sm:text-4xl font-extrabold text-blue-600">25,000+</div>
             <div className="text-xs text-slate-600 font-medium">Documents Successfully Legalised</div>
           </div>
           <div className="bg-white border border-slate-200 p-6 rounded-2xl text-center space-y-1 shadow-sm">
-            <div className="text-3xl sm:text-4xl font-extrabold text-blue-600">Rustenburg</div>
-            <div className="text-xs text-slate-600 font-medium">Consular &amp; Legalisation Hub</div>
+            <div className="text-3xl sm:text-4xl font-extrabold text-blue-600">South Africa</div>
+            <div className="text-xs text-slate-600 font-medium">National Legal Processing Hub</div>
           </div>
         </div>
 

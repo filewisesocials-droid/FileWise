@@ -17,7 +17,7 @@ export const FileWiseLogo: React.FC<FileWiseLogoProps> = ({
       height={size}
       className={`${className} object-contain`}
       onError={(e) => {
-        (e.target as HTMLImageElement).src = '/logo.png';
+        (e.target as HTMLImageElement).src = '/logo.jpg';
       }}
     />
   );

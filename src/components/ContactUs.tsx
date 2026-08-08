@@ -99,7 +99,7 @@ export const ContactUs: React.FC<ContactUsProps> = ({ onStartInquiry }) => {
           </h1>
 
           <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-            Have questions about document legalisation, DIRCO Apostille certificates, or foreign embassy attestations? Our team in Rustenburg is ready to assist you.
+            Have questions about document legalisation, DIRCO Apostille certificates, or foreign embassy attestations? Our specialized team in South Africa is ready to assist you.
           </p>
         </div>
 
@@ -178,8 +178,8 @@ export const ContactUs: React.FC<ContactUsProps> = ({ onStartInquiry }) => {
               <p className="text-xs text-slate-500 mt-1">Legal Processing Hub</p>
             </div>
             <div className="pt-2 border-t border-slate-100 text-xs text-slate-700 leading-relaxed font-medium">
-              Rustenburg<br />
-              North West Province<br />
+              National Legal Processing Operations<br />
+              Pretoria &amp; Major Consular Hubs<br />
               South Africa
             </div>
           </div>

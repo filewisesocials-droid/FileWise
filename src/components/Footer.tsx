@@ -21,7 +21,7 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
                 alt="FileWise Logo" 
                 className="w-full h-full object-contain"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/logo.png';
+                  (e.target as HTMLImageElement).src = '/logo.jpg';
                 }}
               />
             </div>
@@ -95,11 +95,11 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
 
         {/* Contact & Support */}
         <div>
-          <h4 className="font-bold text-white text-xs uppercase tracking-wider mb-3">Rustenburg Hub</h4>
+          <h4 className="font-bold text-white text-xs uppercase tracking-wider mb-3">South Africa Hub</h4>
           <div className="space-y-2.5">
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-blue-400 shrink-0" />
-              <span>Legal Processing Hub, Rustenburg, South Africa</span>
+              <span>Legal Processing Hub, South Africa</span>
             </div>
             <a href="mailto:info@filewise.co.za" className="flex items-center gap-2 hover:text-white transition-colors">
               <Mail className="w-4 h-4 text-blue-400 shrink-0" />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { HeroSearch } from './components/HeroSearch';
 import { CountryDirectory } from './components/CountryDirectory';
@@ -16,6 +16,11 @@ export default function App() {
   
   const [inquiryDest, setInquiryDest] = useState('AE');
   const [activeTrackId, setActiveTrackId] = useState('FW-98214');
+
+  // Automatically scroll to top whenever navigation tab changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [activeTab]);
 
   const handleStartInquiry = (destCode: string) => {
     setInquiryDest(destCode);

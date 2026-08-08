@@ -20,10 +20,6 @@ export const TermsAndConditions: React.FC<TermsAndConditionsProps> = ({ onStartI
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight font-sans text-slate-900">
             Terms &amp; Conditions
           </h1>
-
-          <p className="text-slate-500 text-xs sm:text-sm font-medium">
-            Effective Date: January 1, 2026 • Last Updated: August 2026
-          </p>
         </div>
 
         {/* Section 1 */}
@@ -90,7 +86,10 @@ export const TermsAndConditions: React.FC<TermsAndConditionsProps> = ({ onStartI
             <span>5. Fees, Quotations &amp; Refund Policy</span>
           </div>
           <p>
-            All quotations reflect government statutory fees, consular stamp tariffs, and FileWise handling fees. Work commences upon payment receipt. In the unlikely event that a document cannot be processed due to FileWise error, fees for that document service will be refunded in full.
+            All quotations reflect statutory government charges, official consular tariffs, and FileWise administrative handling fees. Service execution commences immediately upon payment receipt and document submission.
+          </p>
+          <p>
+            Please note that FileWise operates as an independent document legalisation and handling facilitator; we are not a government body or diplomatic mission and do not hold consular decision-making authority. Final document approvals, attestation decisions, or embassy rejections rest entirely at the sole discretion of the respective foreign embassies, DIRCO, or governmental authorities. In the event that a client document is declined, rejected, or delayed by an embassy or government entity due to official policy, regulations, or individual embassy discretion, FileWise cannot be held responsible. Statutory, government, and consular fees disbursed to official departments or embassies are strictly non-refundable, and service handling refunds are not guaranteed in cases of official diplomatic decline.
           </p>
         </div>
 
