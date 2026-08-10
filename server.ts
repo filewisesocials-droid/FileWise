@@ -18,6 +18,17 @@ async function startServer() {
     res.json({ status: 'ok', service: 'Filewise Document Legalisation Engine' });
   });
 
+  // Explicit handlers for Googlebot crawlers
+  app.get('/robots.txt', (req, res) => {
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+    res.sendFile(path.join(process.cwd(), 'public', 'robots.txt'));
+  });
+
+  app.get('/sitemap.xml', (req, res) => {
+    res.setHeader('Content-Type', 'application/xml; charset=utf-8');
+    res.sendFile(path.join(process.cwd(), 'public', 'sitemap.xml'));
+  });
+
   // Get all countries or filter by query
   app.get('/api/countries', (req, res) => {
     const q = ((req.query.q as string) || '').toLowerCase().trim();
