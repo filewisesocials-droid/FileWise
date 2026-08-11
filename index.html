@@ -19,10 +19,11 @@
 
     <!-- Favicons & Touch Icons (Google Search & Browser Tabs) -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
     <!-- Open Graph / WhatsApp / Facebook / LinkedIn -->
     <meta property="og:type" content="website" />
@@ -48,14 +49,27 @@
 
     <!-- Schema.org JSON-LD Structured Data for Crawlers -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "FileWise",
-      "alternateName": "FileWise Legalisation Services",
-      "url": "https://www.filewise.co.za/",
-      "description": "Global document legalisation, Hague apostille checking, embassy attestation, and consular document workflow solutions."
-    }
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "FileWise",
+        "alternateName": "FileWise Legalisation Services",
+        "url": "https://www.filewise.co.za/",
+        "description": "Global document legalisation, Hague apostille checking, embassy attestation, and consular document workflow solutions."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "FileWise",
+        "url": "https://www.filewise.co.za/",
+        "logo": "https://www.filewise.co.za/logo.jpg",
+        "image": "https://www.filewise.co.za/og-image.png",
+        "sameAs": [
+          "https://www.filewise.co.za/"
+        ]
+      }
+    ]
     </script>
   </head>
   <body>

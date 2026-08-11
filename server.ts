@@ -18,7 +18,7 @@ async function startServer() {
     res.json({ status: 'ok', service: 'Filewise Document Legalisation Engine' });
   });
 
-  // Explicit handlers for Googlebot crawlers
+  // Explicit handlers for Googlebot crawlers & favicons
   app.get('/robots.txt', (req, res) => {
     res.setHeader('Content-Type', 'text/plain; charset=utf-8');
     res.sendFile(path.join(process.cwd(), 'public', 'robots.txt'));
@@ -27,6 +27,12 @@ async function startServer() {
   app.get('/sitemap.xml', (req, res) => {
     res.setHeader('Content-Type', 'application/xml; charset=utf-8');
     res.sendFile(path.join(process.cwd(), 'public', 'sitemap.xml'));
+  });
+
+  app.get(['/favicon.ico', '/favicon.svg', '/favicon-96x96.png', '/favicon-32x32.png', '/apple-touch-icon.png'], (req, res) => {
+    const filename = req.path.replace('/', '');
+    res.setHeader('Cache-Control', 'public, max-age=86400');
+    res.sendFile(path.join(process.cwd(), 'public', filename));
   });
 
   // Get all countries or filter by query
