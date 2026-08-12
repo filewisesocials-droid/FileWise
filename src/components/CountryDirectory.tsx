@@ -155,23 +155,23 @@ export const CountryDirectory: React.FC<CountryDirectoryProps> = ({ onSelectCoun
         </div>
 
         {/* Search & Filter Bar */}
-        <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm mb-6 space-y-4 max-w-4xl mx-auto">
+        <div className="glass-panel border border-slate-200/90 p-5 sm:p-6 rounded-3xl shadow-xl hover-glow-card mb-8 space-y-4 max-w-4xl mx-auto backdrop-blur-xl">
           
           <div className="flex flex-col sm:flex-row gap-3">
             {/* Search Input */}
             <div className="relative flex-1">
-              <Search className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-400" />
+              <Search className="absolute left-4 top-3.5 w-4 h-4 text-blue-600" />
               <input
                 type="text"
                 placeholder="Type country name or code (e.g. UK, UAE, USA, Qatar)..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-200 text-slate-900 text-sm rounded-xl pl-10 pr-10 py-3 focus:outline-none focus:border-blue-500 focus:bg-white placeholder-slate-400 transition-all shadow-inner"
+                className="w-full bg-slate-50/80 border border-slate-200 text-slate-900 text-sm rounded-2xl pl-11 pr-10 py-3 focus:outline-none focus:border-blue-500 focus:bg-white placeholder-slate-400 transition-all shadow-xs focus:ring-2 focus:ring-blue-500/20"
               />
               {searchTerm && (
                 <button
                   onClick={() => setSearchTerm('')}
-                  className="absolute right-3.5 top-3 text-slate-400 hover:text-slate-600 p-0.5 rounded-full hover:bg-slate-200"
+                  className="absolute right-3.5 top-3 text-slate-400 hover:text-slate-600 p-1 rounded-full hover:bg-slate-200 transition-colors"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -179,27 +179,27 @@ export const CountryDirectory: React.FC<CountryDirectoryProps> = ({ onSelectCoun
             </div>
 
             {/* Hague Filter dropdown buttons */}
-            <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200 text-xs shrink-0">
+            <div className="flex items-center gap-1 bg-slate-100/90 p-1 rounded-2xl border border-slate-200 text-xs shrink-0">
               <button
                 onClick={() => setHagueFilter('ALL')}
-                className={`px-3 py-2 rounded-lg font-medium transition-colors ${
-                  hagueFilter === 'ALL' ? 'bg-white text-blue-700 font-bold shadow-sm' : 'text-slate-600 hover:text-slate-900'
+                className={`px-3.5 py-2 rounded-xl font-semibold transition-all ${
+                  hagueFilter === 'ALL' ? 'bg-white text-blue-700 shadow-xs font-bold' : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 All
               </button>
               <button
                 onClick={() => setHagueFilter('HAGUE')}
-                className={`px-3 py-2 rounded-lg font-medium transition-colors ${
-                  hagueFilter === 'HAGUE' ? 'bg-white text-blue-700 font-bold shadow-sm' : 'text-slate-600 hover:text-slate-900'
+                className={`px-3.5 py-2 rounded-xl font-semibold transition-all ${
+                  hagueFilter === 'HAGUE' ? 'bg-white text-blue-700 shadow-xs font-bold' : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 Hague Apostille
               </button>
               <button
                 onClick={() => setHagueFilter('NON_HAGUE')}
-                className={`px-3 py-2 rounded-lg font-medium transition-colors ${
-                  hagueFilter === 'NON_HAGUE' ? 'bg-white text-blue-700 font-bold shadow-sm' : 'text-slate-600 hover:text-slate-900'
+                className={`px-3.5 py-2 rounded-xl font-semibold transition-all ${
+                  hagueFilter === 'NON_HAGUE' ? 'bg-white text-blue-700 shadow-xs font-bold' : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 Embassy Attestation
