@@ -146,25 +146,13 @@ export const ContactUs: React.FC<ContactUsProps> = ({ onStartInquiry }) => {
               <h3 className="text-lg font-bold text-slate-900">Email Inquiries</h3>
               <p className="text-xs text-slate-500 mt-1">Direct response within 24 hours</p>
             </div>
-            <div className="pt-2 border-t border-slate-100 space-y-1">
-              <div>
-                <span className="text-[10px] text-slate-400 uppercase font-bold block">General:</span>
-                <a
-                  href="mailto:info@filewise.co.za"
-                  className="text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors"
-                >
-                  info@filewise.co.za
-                </a>
-              </div>
-              <div className="pt-1">
-                <span className="text-[10px] text-slate-400 uppercase font-bold block">Support &amp; Tracking:</span>
-                <a
-                  href="mailto:support@filewise.co.za"
-                  className="text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors"
-                >
-                  support@filewise.co.za
-                </a>
-              </div>
+            <div className="pt-2 border-t border-slate-100">
+              <a
+                href="mailto:info@filewise.co.za"
+                className="text-base font-extrabold text-blue-600 hover:text-blue-800 transition-colors block"
+              >
+                info@filewise.co.za
+              </a>
             </div>
           </div>
 
