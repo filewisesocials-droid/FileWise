@@ -14,35 +14,35 @@ export const AboutUs: React.FC<AboutUsProps> = ({ onStartInquiry }) => {
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold px-4 py-1.5 rounded-full shadow-2xs">
             <Building2 className="w-4 h-4 text-blue-600" />
-            <span>About FileWise Legalisation Services</span>
+            <span>About FileWise Visa &amp; Legalisation Services</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight font-sans text-slate-900">
-            Simplifying Global Document Verification &amp; Legalisation
+            Expert Visa Assistance &amp; Document Legalisation
           </h1>
 
           <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-            FileWise is a premier South African document legalisation specialist. We bridge the gap between South African public authorities, foreign embassies, and individuals or corporations requiring seamless document verification worldwide.
+            FileWise is a specialized South African agency providing comprehensive visa application support and international document legalisation services. We assist individuals, families, and businesses moving, studying, or working abroad by ensuring all visa documentation, DIRCO Hague apostilles, foreign embassy attestations, and sworn translations are flawlessly prepared and legally verified.
           </p>
         </div>
 
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
           <div className="bg-white border border-slate-200 p-6 rounded-2xl text-center space-y-1 shadow-sm">
+            <div className="text-3xl sm:text-4xl font-extrabold text-blue-600">Global</div>
+            <div className="text-xs text-slate-600 font-medium">Visa &amp; Consular Support</div>
+          </div>
+          <div className="bg-white border border-slate-200 p-6 rounded-2xl text-center space-y-1 shadow-sm">
             <div className="text-3xl sm:text-4xl font-extrabold text-blue-600">120+</div>
             <div className="text-xs text-slate-600 font-medium">Hague Member Countries Supported</div>
           </div>
           <div className="bg-white border border-slate-200 p-6 rounded-2xl text-center space-y-1 shadow-sm">
             <div className="text-3xl sm:text-4xl font-extrabold text-blue-600">Strict</div>
-            <div className="text-xs text-slate-600 font-medium">DIRCO &amp; Consular Verification</div>
+            <div className="text-xs text-slate-600 font-medium">DIRCO &amp; Embassy Verification</div>
           </div>
           <div className="bg-white border border-slate-200 p-6 rounded-2xl text-center space-y-1 shadow-sm">
-            <div className="text-3xl sm:text-4xl font-extrabold text-blue-600">25,000+</div>
-            <div className="text-xs text-slate-600 font-medium">Documents Successfully Legalised</div>
-          </div>
-          <div className="bg-white border border-slate-200 p-6 rounded-2xl text-center space-y-1 shadow-sm">
-            <div className="text-3xl sm:text-4xl font-extrabold text-blue-600">South Africa</div>
-            <div className="text-xs text-slate-600 font-medium">National Legal Processing Hub</div>
+            <div className="text-3xl sm:text-4xl font-extrabold text-blue-600">Pretoria</div>
+            <div className="text-xs text-slate-600 font-medium">Embassy &amp; DIRCO Hub</div>
           </div>
         </div>
 
@@ -54,20 +54,20 @@ export const AboutUs: React.FC<AboutUsProps> = ({ onStartInquiry }) => {
             </div>
             <h2 className="text-2xl font-bold text-slate-900">Our Mission</h2>
             <p className="text-slate-600 text-sm leading-relaxed">
-              International bureaucratic processes can be overwhelming, opaque, and time-consuming. Our mission is to make document attestation, Hague Apostille certification, and consular authentication stress-free, reliable, and completely transparent for every client.
+              Navigating foreign embassies, visa requirements, and government legalisation channels can be complex and stressful. Our mission is to provide seamless visa guidance, consular document preparation, Hague Apostille certification, and sworn translations that make international travel, study, and relocation straightforward.
             </p>
             <ul className="space-y-2.5 text-xs text-slate-700 pt-2">
               <li className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
-                <span>Direct daily submissions to DIRCO in Pretoria &amp; High Courts</span>
+                <span>Comprehensive visa document preparation and checklist verification</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
-                <span>In-house registered SA Notaries Public and Sworn Translators</span>
+                <span>Direct daily submissions to DIRCO in Pretoria &amp; SA High Courts</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
-                <span>Full physical embassy liaisons (UAE, Qatar, Saudi Arabia, China, etc.)</span>
+                <span>Full embassy liaisons (UAE, Qatar, Saudi Arabia, UK, Schengen &amp; China)</span>
               </li>
             </ul>
           </div>
@@ -78,20 +78,20 @@ export const AboutUs: React.FC<AboutUsProps> = ({ onStartInquiry }) => {
             </div>
             <h2 className="text-2xl font-bold text-slate-900">Why Choose FileWise?</h2>
             <p className="text-slate-600 text-sm leading-relaxed">
-              We handle every document with bank-grade security protocols and meticulous attention to legal detail. From birth certificates and police clearances to corporate agreements and university degrees, our experienced legalisation officers verify compliance before submission to avoid costly rejections.
+              We manage every document and visa submission with meticulous precision. From police clearances, birth certificates, and marriage certificates to academic degrees and corporate documentation, our specialists ensure your papers meet strict embassy standards to avoid delays or rejections.
             </p>
             <ul className="space-y-2.5 text-xs text-slate-700 pt-2">
               <li className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
-                <span>Real-time status tracking via unique reference code</span>
+                <span>End-to-end guidance tailored specifically to your destination country</span>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
+                <span>In-house registered SA Notaries Public &amp; Sworn Translators</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
                 <span>Door-to-door express courier collection and delivery</span>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
-                <span>Expert guidance tailored specifically to your destination country</span>
               </li>
             </ul>
           </div>
