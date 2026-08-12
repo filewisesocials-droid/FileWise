@@ -23,11 +23,11 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
           >
             <div className="w-10 h-10 rounded-lg bg-white border border-blue-100 shadow-sm flex items-center justify-center overflow-hidden shrink-0 group-hover:scale-105 transition-transform p-0.5">
               <img 
-                src="/logo.svg" 
+                src="/favicon-96x96.png" 
                 alt="FileWise Logo" 
                 className="w-full h-full object-contain"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/logo.jpg';
+                  (e.target as HTMLImageElement).src = '/favicon-32x32.png';
                 }}
               />
             </div>

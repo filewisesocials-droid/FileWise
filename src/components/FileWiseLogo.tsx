@@ -11,13 +11,13 @@ export const FileWiseLogo: React.FC<FileWiseLogoProps> = ({
 }) => {
   return (
     <img 
-      src="/logo.svg" 
+      src="/favicon-96x96.png" 
       alt="FileWise Logo" 
       width={size}
       height={size}
       className={`${className} object-contain`}
       onError={(e) => {
-        (e.target as HTMLImageElement).src = '/logo.jpg';
+        (e.target as HTMLImageElement).src = '/favicon-32x32.png';
       }}
     />
   );

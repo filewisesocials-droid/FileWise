@@ -186,6 +186,101 @@ export const ContactUs: React.FC<ContactUsProps> = ({ onStartInquiry }) => {
 
         </div>
 
+        {/* Social Media Channels Section */}
+        <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-slate-100 pb-4">
+            <div>
+              <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
+                <span>Follow FileWise Online</span>
+              </h2>
+              <p className="text-xs text-slate-500 mt-1">
+                Stay updated with document legalisation guides, consular updates, and visa insights on our official social channels.
+              </p>
+            </div>
+            <span className="inline-flex items-center text-[11px] font-semibold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-full w-fit">
+              Official Handles
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {/* Facebook */}
+            <a
+              href="https://www.facebook.com/share/1GhTJDMDL7/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-3.5 p-4 rounded-2xl bg-slate-50 hover:bg-blue-50/60 border border-slate-200 hover:border-blue-300 transition-all shadow-2xs hover:shadow-sm"
+            >
+              <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="text-xs font-bold text-slate-900 group-hover:text-blue-700 transition-colors">Facebook</div>
+                <div className="text-xs text-slate-500 font-medium truncate">FileWise</div>
+              </div>
+              <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-blue-600 transition-colors shrink-0" />
+            </a>
+
+            {/* Instagram */}
+            <a
+              href="https://www.instagram.com/filewise_za"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-3.5 p-4 rounded-2xl bg-slate-50 hover:bg-pink-50/60 border border-slate-200 hover:border-pink-300 transition-all shadow-2xs hover:shadow-sm"
+            >
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="text-xs font-bold text-slate-900 group-hover:text-pink-600 transition-colors">Instagram</div>
+                <div className="text-xs text-slate-500 font-medium truncate">@filewise_za</div>
+              </div>
+              <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-pink-600 transition-colors shrink-0" />
+            </a>
+
+            {/* YouTube */}
+            <a
+              href="https://www.youtube.com/@Filewise_ZA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-3.5 p-4 rounded-2xl bg-slate-50 hover:bg-red-50/60 border border-slate-200 hover:border-red-300 transition-all shadow-2xs hover:shadow-sm"
+            >
+              <div className="w-10 h-10 rounded-xl bg-red-600 text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="text-xs font-bold text-slate-900 group-hover:text-red-600 transition-colors">YouTube</div>
+                <div className="text-xs text-slate-500 font-medium truncate">@Filewise_ZA</div>
+              </div>
+              <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-red-600 transition-colors shrink-0" />
+            </a>
+
+            {/* TikTok */}
+            <a
+              href="https://www.tiktok.com/@filewise8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-3.5 p-4 rounded-2xl bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-slate-400 transition-all shadow-2xs hover:shadow-sm"
+            >
+              <div className="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .56.04.82.1v-3.6a6.34 6.34 0 0 0-.82-.05A6.33 6.33 0 0 0 3 15.57a6.33 6.33 0 0 0 10.8 4.47V10.4a8.16 8.16 0 0 0 4.79 1.54V8.5a4.84 4.84 0 0 1-3-.81z"/>
+                </svg>
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="text-xs font-bold text-slate-900 group-hover:text-slate-900 transition-colors">TikTok</div>
+                <div className="text-xs text-slate-500 font-medium truncate">@filewise8</div>
+              </div>
+              <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-slate-900 transition-colors shrink-0" />
+            </a>
+          </div>
+        </div>
+
         {/* Contact Form Section */}
         <div className="bg-white border border-slate-200 rounded-3xl p-8 sm:p-10 shadow-sm max-w-4xl mx-auto space-y-6">
           <div className="text-center max-w-xl mx-auto space-y-2">
