@@ -1,49 +1,49 @@
 import React, { useState } from 'react';
-import { HelpCircle, ChevronDown, ShieldCheck } from 'lucide-react';
+import { HelpCircle, ChevronDown } from 'lucide-react';
 
 export const FaqSection: React.FC = () => {
   const faqs = [
     {
-      q: 'Which countries do you assist with for visas and document legalisation?',
-      a: 'FileWise assists with document legalisation (via DIRCO Pretoria or High Courts) and visa document preparation for destination countries around the world including the UK, UAE, USA, Europe, Qatar, Saudi Arabia, China, and 120+ nations worldwide.'
+      q: 'Do you assist with visa applications from South Africa?',
+      a: 'Yes! Outbound visa assistance for South Africans traveling abroad is our primary core service. We guide applicants on passport requirements, consular forms, appointment scheduling, and supporting document compilation for travel to the UK, Schengen states, UAE, USA, Qatar, Saudi Arabia, Australia, and nations worldwide.'
     },
     {
-      q: 'How does DIRCO Apostille and High Court legalisation work in South Africa?',
-      a: 'South Africa is a member of the 1961 Hague Apostille Convention. Public documents issued in South Africa (such as Home Affairs Birth/Marriage certificates, SAPS Police Clearance, or High Court documents) receive a DIRCO or High Court Apostille stamp. If your destination country is also a Hague member (e.g., UK, Spain, Germany), no embassy attestation is required. If the destination country is non-Hague (e.g., UAE, Qatar, Kuwait), full embassy attestation in Pretoria is required following DIRCO legalisation.'
+      q: 'Where are document legalisations and attestations processed?',
+      a: 'All document legalisation, DIRCO Hague Apostilles, SA High Court authentications, and foreign embassy attestations are processed locally in Pretoria, South Africa. We do not process document legalisation for foreign documents outside of South Africa.'
     },
     {
-      q: 'What is the difference between an Apostille and Embassy Legalisation?',
-      a: 'An Apostille is an official authentication stamp issued under the 1961 Hague Convention. If both South Africa and the destination country are Hague members (e.g., South Africa to Spain, UK, or Germany), only a single Apostille is needed. If the destination country is NOT a Hague member (e.g., South Africa to UAE, Qatar, or Kuwait), full Embassy Legalisation in Pretoria is required (SA Notary ➔ High Court / DIRCO ➔ Foreign Embassy Seal).'
+      q: 'What is the difference between a Hague Apostille and Embassy Attestation?',
+      a: 'If your destination country is a Hague Convention member state (e.g. South Africa to Spain, UK, Germany, or USA), your SA document requires a single DIRCO or High Court Hague Apostille. If the destination country is NOT a Hague member (e.g. South Africa to UAE, Qatar, Kuwait, or Saudi Arabia), full diplomatic embassy attestation in Pretoria is required.'
     },
     {
-      q: 'Do I need to send original documents or can digital scans be apostilled?',
-      a: 'Home Affairs certificates and SAPS Police Clearances generally require physical original documents or official DIRCO-verified copies. Academic degrees and commercial documents can often be notarised by an SA Notary Public on certified true copies.'
+      q: 'Do I need original documents or can digital copies be processed?',
+      a: 'Official Home Affairs certificates (birth, marriage) and SAPS Police Clearances require original physical certificates or DIRCO-verified copies. Academic degrees and corporate contracts can frequently be certified by an SA Notary Public on verified copies.'
     },
     {
-      q: 'How long does document legalisation in South Africa take?',
-      a: 'DIRCO standard processing typically takes 5 to 10 business days. High Court Apostilles can be completed in 24 to 48 hours. Embassy attestation for non-Hague nations (such as UAE, Qatar, or Saudi Arabia in Pretoria) typically takes 5-8 business days.'
+      q: 'How long does DIRCO or embassy attestation in Pretoria take?',
+      a: 'DIRCO Hague Apostille processing in Pretoria typically takes 5 to 10 business days. High Court Apostilles can be authenticated in 24 to 48 hours. Embassy attestations at Pretoria foreign missions (UAE, Qatar, Saudi Arabia) take approximately 5 to 12 business days.'
     },
     {
-      q: 'Can Filewise handle sworn translations into Arabic, Spanish, French, or German?',
-      a: 'Yes! We work directly with Sworn Translators registered with the High Court of South Africa. Official sworn court translations are provided with an official stamp and Certificate of Accuracy accepted by foreign embassies.'
+      q: 'Can FileWise arrange SA High Court Sworn Translations?',
+      a: 'Yes. We work directly with official Sworn Translators registered with the High Court of South Africa for translation into English, Arabic, Spanish, French, German, and Portuguese, complete with official court stamps and Certificates of Accuracy.'
     }
   ];
 
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section className="py-16 bg-slate-50 text-slate-900 border-b border-slate-200">
+    <section className="py-16 bg-slate-50 text-slate-900 border-b border-slate-200 font-sans">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-10">
-          <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+          <span className="text-xs font-bold uppercase tracking-wider text-amber-900 bg-amber-100 px-3 py-1 rounded border border-amber-200">
             Frequently Asked Questions
           </span>
-          <h2 className="text-3xl font-extrabold font-sans text-slate-900 mt-3">
-            Document Legalisation Knowledge Base
+          <h2 className="text-3xl font-serif font-bold text-slate-900 mt-3">
+            Visa &amp; Legalisation Knowledge Base
           </h2>
           <p className="text-slate-600 text-sm mt-2">
-            Clear answers on Hague Apostilles, Notary Public requirements, and consular attestation.
+            Clear guidelines on outbound visas, DIRCO Hague Apostilles, and Pretoria diplomatic attestations.
           </p>
         </div>
 
@@ -53,21 +53,21 @@ export const FaqSection: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm transition-colors"
+                className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-2xs transition-colors"
               >
                 <button
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
-                  className="w-full text-left p-5 flex items-center justify-between gap-4 font-bold text-sm sm:text-base text-slate-900 hover:text-blue-600 transition-colors"
+                  className="w-full text-left p-5 flex items-center justify-between gap-4 font-serif font-bold text-sm sm:text-base text-slate-900 hover:text-amber-800 transition-colors"
                 >
                   <span className="flex items-center gap-3">
-                    <HelpCircle className="w-4 h-4 text-blue-600 shrink-0" />
+                    <HelpCircle className="w-4 h-4 text-amber-600 shrink-0" />
                     <span>{faq.q}</span>
                   </span>
                   <ChevronDown className={`w-5 h-5 text-slate-400 shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-5 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 mt-1 pt-3">
+                  <div className="px-5 pb-5 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed font-sans border-t border-slate-100 mt-1 pt-3">
                     {faq.a}
                   </div>
                 )}

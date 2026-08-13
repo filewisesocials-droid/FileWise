@@ -142,15 +142,15 @@ export const CountryDirectory: React.FC<CountryDirectoryProps> = ({ onSelectCoun
         
         {/* Title */}
         <div className="text-center max-w-3xl mx-auto mb-8">
-          <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 text-xs px-3.5 py-1.5 rounded-full font-semibold mb-3 border border-blue-200 shadow-sm">
-            <Globe className="w-3.5 h-3.5 text-blue-600" />
-            <span>Search Country Legalisation Requirements</span>
+          <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-900 text-xs px-3.5 py-1.5 rounded-md font-bold mb-3 border border-amber-200 shadow-2xs">
+            <Globe className="w-3.5 h-3.5 text-amber-700" />
+            <span>Outbound Visa Directory</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold font-sans text-slate-900">
-            Find Requirements For Any Destination Country
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900">
+            Outbound Visa Information by Destination Country
           </h2>
-          <p className="text-slate-600 text-sm mt-1">
-            Search for a specific country below to check Hague Apostille status, embassy protocols, and processing times.
+          <p className="text-slate-600 text-sm mt-1 font-sans">
+            Search your destination nation below to review consular guidance, visa category preparation, and processing estimates for South African travelers.
           </p>
         </div>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Building2, FileCheck, Languages, Truck, CheckCircle2, ArrowRight, PlaneTakeoff, Sparkles } from 'lucide-react';
+import { ShieldCheck, Building2, FileCheck, Languages, Truck, CheckCircle2, ArrowRight, PlaneTakeoff, Stamp } from 'lucide-react';
 
 interface ServicesOverviewProps {
   onSelectService: (serviceName: string) => void;
@@ -9,62 +9,62 @@ export const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onSelectServ
   const services = [
     {
       icon: PlaneTakeoff,
-      title: 'Visa Assistance & Preparation',
-      tag: 'From South Africa to Any Country',
-      description: 'Comprehensive visa document preparation and legalisation for South Africans travelling, working, studying, or emigrating abroad.',
-      features: ['Consular visa document packing', 'Embassy appointment guidance', 'Verification of support records']
+      title: 'Outbound Visa Assistance',
+      tag: 'From SA to Foreign Destinations',
+      description: 'Consular visa document preparation, form verification, and appointment guidance for South Africans traveling, working, studying, or moving abroad.',
+      features: ['Consular application preparation', 'Embassy appointment scheduling guidance', 'Verification of supporting financial & travel records']
     },
     {
       icon: ShieldCheck,
-      title: 'DIRCO & High Court Apostille',
-      tag: 'South Africa Hague Apostille',
-      description: 'Official Hague Convention Apostille legalisation issued directly by DIRCO (Pretoria) or South African High Courts for use in 120+ Hague member nations.',
-      features: ['DIRCO Pretoria & High Court seals', 'Valid across Hague member states', 'Express courier submission']
+      title: 'DIRCO Hague Apostille (Pretoria)',
+      tag: 'Executed in South Africa',
+      description: 'Official Hague Convention Apostille legalisation issued directly by DIRCO (Pretoria) or SA High Courts for South African documents used in Hague member nations.',
+      features: ['DIRCO Pretoria official Apostille seal', 'Valid across 120+ Hague member states', 'Express Pretoria hand-delivery submission']
     },
     {
       icon: Building2,
-      title: 'Embassy Attestation (Non-Hague)',
-      tag: 'UAE, Qatar, Saudi Arabia, China & More',
-      description: 'Full consular legalization sequence for Non-Hague destination countries: SA Notary / High Court ➔ DIRCO Legalisation ➔ Foreign Embassy Attestation in Pretoria.',
-      features: ['Foreign Embassy Pretoria stamps', 'MOFA compliance assured', 'Physical embassy liaison']
+      title: 'Pretoria Embassy Attestation',
+      tag: 'Executed in South Africa',
+      description: 'Full consular legalisation sequence for Non-Hague destination countries: SA Notary / High Court ➔ DIRCO Legalisation ➔ Foreign Embassy Attestation in Pretoria.',
+      features: ['Foreign Embassy stamps in Pretoria (UAE, Qatar, Saudi Arabia, etc.)', 'DIRCO & High Court pre-authentication', 'In-person embassy submission in Pretoria']
     },
     {
       icon: FileCheck,
-      title: 'Notary Public & High Court Verification',
-      tag: 'SA Legal Verification',
-      description: 'Notarial authentication of South African birth/marriage certificates, degrees, police clearances (SAPS), and corporate contracts by registered SA Notaries Public.',
+      title: 'Notary Public & High Court Authentication',
+      tag: 'Executed in South Africa',
+      description: 'Notarial authentication of South African birth/marriage certificates, university degrees, SAPS police clearance, and commercial records by registered SA Notaries.',
       features: ['SA Notary Public wet-ink seal', 'Registrar degree verification', 'Certified True Copy verification']
     },
     {
       icon: Languages,
-      title: 'Sworn Court Translations',
-      tag: 'Sworn Translators of SA High Court',
-      description: 'Official sworn translations into Arabic, Spanish, French, German, Chinese, Portuguese, Italian, and 40+ languages accepted by international embassies.',
-      features: ['Sworn High Court translator seal', 'Certificate of Accuracy', 'Direct embassy formatting']
+      title: 'High Court Sworn Translations',
+      tag: 'Executed in South Africa',
+      description: 'Certified sworn translations into Arabic, Spanish, French, German, Chinese, Portuguese, Italian, and 40+ languages accepted by foreign embassies.',
+      features: ['Sworn High Court translator stamp & signature', 'Official Certificate of Accuracy', 'Direct embassy format compliance']
     },
     {
       icon: Truck,
-      title: 'Door-to-Door Express Courier',
-      tag: 'DHL / FedEx Priority Courier',
-      description: 'Secure tracked door-to-door courier collection anywhere in South Africa (JHB, CPT, DUR, PTA) and priority delivery directly to your overseas destination.',
-      features: ['Collection across SA', 'Global express delivery', 'Live GPS tracking']
+      title: 'Door-to-Door Priority Courier',
+      tag: 'Nationwide SA Collection',
+      description: 'Secure door-to-door courier collection anywhere in South Africa (JHB, CPT, DUR, PTA) and priority delivery directly to your home or overseas destination.',
+      features: ['Collection across all SA provinces', 'Global express delivery via DHL/FedEx', 'Live tracking update notifications']
     }
   ];
 
   return (
-    <section className="py-20 bg-slate-50/80 text-slate-900 border-b border-slate-200 relative overflow-hidden bg-mesh-pattern">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section className="py-16 sm:py-20 bg-slate-100 text-slate-900 border-b border-slate-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <div className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-widest text-blue-700 bg-blue-100/70 border border-blue-200 px-3.5 py-1.5 rounded-full shadow-2xs">
-            <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-            <span>South Africa Legalisation Suite</span>
+        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-900 bg-amber-100 border border-amber-200 px-3.5 py-1.5 rounded shadow-2xs">
+            <Stamp className="w-3.5 h-3.5 text-amber-700" />
+            <span>South African Consular &amp; Visa Advisory Services</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold font-sans text-slate-950 tracking-tight">
-            Visa &amp; Document Attestation Services
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-900 tracking-tight">
+            Our Core Services
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Providing legal verification and visa support for South African personal, academic, and commercial documents worldwide.
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-sans max-w-2xl mx-auto">
+            Providing outbound visa assistance and legal document processing within South Africa for personal, academic, and commercial documents.
           </p>
         </div>
 
@@ -74,32 +74,30 @@ export const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onSelectServ
             return (
               <div
                 key={idx}
-                className="bg-white/90 backdrop-blur-md border border-slate-200/90 hover:border-blue-300 rounded-3xl p-7 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-1 flex flex-col justify-between group relative overflow-hidden"
+                className="bg-white border border-slate-200 hover:border-amber-400 rounded-xl p-6 sm:p-7 transition-all duration-200 shadow-md hover:shadow-xl flex flex-col justify-between group"
               >
-                <div className="absolute top-0 right-0 w-28 h-28 bg-blue-500/5 rounded-full blur-xl group-hover:bg-blue-500/10 transition-all pointer-events-none" />
-
                 <div>
-                  <div className="w-13 h-13 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 text-blue-600 flex items-center justify-center mb-5 border border-blue-100/80 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-xs">
+                  <div className="w-12 h-12 rounded-lg bg-slate-900 text-amber-400 flex items-center justify-center mb-4 border border-slate-800 shadow-xs">
                     <IconComponent className="w-6 h-6" />
                   </div>
 
-                  <span className="text-[10px] font-mono font-bold uppercase text-blue-700 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200/60 inline-block">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-2.5 py-1 rounded border border-amber-200 inline-block">
                     {s.tag}
                   </span>
 
-                  <h3 className="text-lg font-bold text-slate-950 mt-3 mb-2 font-sans group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-lg font-serif font-bold text-slate-900 mt-3 mb-2">
                     {s.title}
                   </h3>
 
-                  <p className="text-slate-600 text-xs leading-relaxed mb-5">
+                  <p className="text-slate-600 text-xs leading-relaxed mb-5 font-sans">
                     {s.description}
                   </p>
 
                   <ul className="space-y-2 text-xs text-slate-700 mb-6 border-t border-slate-100 pt-4">
                     {s.features.map((feat, fIdx) => (
-                      <li key={fIdx} className="flex items-center gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                        <span className="font-medium text-slate-700">{feat}</span>
+                      <li key={fIdx} className="flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                        <span className="font-medium text-slate-800">{feat}</span>
                       </li>
                     ))}
                   </ul>
@@ -107,10 +105,10 @@ export const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onSelectServ
 
                 <button
                   onClick={() => onSelectService(s.title)}
-                  className="w-full bg-slate-100 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-white text-slate-900 hover:border-blue-600 text-xs font-extrabold py-3 rounded-xl border border-slate-200 transition-all flex items-center justify-center gap-2 shadow-2xs group-hover:shadow-md"
+                  className="w-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-3 rounded-lg transition-all flex items-center justify-center gap-2 shadow-sm"
                 >
-                  <span>Inquire About Service</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <span>Inquire About This Service</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
                 </button>
               </div>
             );
@@ -121,4 +119,3 @@ export const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onSelectServ
     </section>
   );
 };
-

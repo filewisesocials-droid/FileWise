@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FileText, Menu, X, Building2, Mail, Sparkles, ShieldCheck } from 'lucide-react';
+import { FileText, Menu, X, Building2, Mail, ShieldCheck, Globe } from 'lucide-react';
 
 interface HeaderProps {
   activeTab: 'search' | 'inquiry' | 'tracking' | 'services' | 'faq' | 'about' | 'terms' | 'contact';
@@ -11,16 +11,16 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 text-slate-900 shadow-xs transition-all">
+    <header className="sticky top-0 z-50 bg-slate-900 text-white border-b border-slate-800 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
+        <div className="flex items-center justify-between h-18 sm:h-20">
           
-          {/* Favicon + FileWise Name */}
+          {/* Logo & Subtitle */}
           <div 
-            className="flex items-center gap-3 cursor-pointer group"
+            className="flex items-center gap-3.5 cursor-pointer group"
             onClick={() => setActiveTab('search')}
           >
-            <div className="w-10 h-10 rounded-xl bg-white border border-blue-100 shadow-xs flex items-center justify-center overflow-hidden shrink-0 group-hover:scale-105 group-hover:border-blue-300 transition-all p-0.5 relative">
+            <div className="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 shadow-sm flex items-center justify-center overflow-hidden shrink-0 p-1 group-hover:border-amber-400 transition-all">
               <img 
                 src="/favicon-96x96.png" 
                 alt="FileWise Logo" 
@@ -32,51 +32,49 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             </div>
             <div className="flex flex-col">
               <div className="flex items-center gap-2">
-                <span className="font-extrabold text-2xl tracking-tight text-blue-950 font-sans">FileWise</span>
-                <span className="hidden sm:inline-flex items-center gap-1.5 text-[10px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-2.5 py-0.5 rounded-full shadow-2xs">
-                  <span className="relative flex h-1.5 w-1.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
-                  </span>
-                  <span>Active Portal</span>
+                <span className="font-serif font-extrabold text-2xl tracking-tight text-white">FileWise</span>
+                <span className="hidden sm:inline-flex items-center text-[10px] font-semibold text-amber-300 bg-amber-950/80 border border-amber-800/80 px-2.5 py-0.5 rounded shadow-xs">
+                  Official SA Agency
                 </span>
               </div>
-              <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest hidden sm:block">Visa &amp; Legalisation</span>
+              <span className="text-[10px] font-medium text-slate-400 uppercase tracking-wider hidden sm:block">
+                Visa Services &amp; South African Document Legalisation
+              </span>
             </div>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1.5">
+          <nav className="hidden md:flex items-center gap-2">
             <button
               onClick={() => setActiveTab('search')}
-              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
+              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all ${
                 activeTab === 'search'
-                  ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/20 font-bold'
-                  : 'text-slate-600 hover:text-blue-600 hover:bg-slate-100/80'
+                  ? 'bg-amber-500 text-slate-950 font-bold shadow-sm'
+                  : 'text-slate-300 hover:text-white hover:bg-slate-800'
               }`}
             >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Country Lookup</span>
+              <Globe className="w-3.5 h-3.5" />
+              <span>Outbound Visas</span>
             </button>
 
             <button
               onClick={() => setActiveTab('services')}
-              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
+              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all ${
                 activeTab === 'services'
-                  ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/20 font-bold'
-                  : 'text-slate-600 hover:text-blue-600 hover:bg-slate-100/80'
+                  ? 'bg-amber-500 text-slate-950 font-bold shadow-sm'
+                  : 'text-slate-300 hover:text-white hover:bg-slate-800'
               }`}
             >
               <FileText className="w-3.5 h-3.5" />
-              <span>Services</span>
+              <span>SA Document Legalisation</span>
             </button>
 
             <button
               onClick={() => setActiveTab('about')}
-              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
+              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all ${
                 activeTab === 'about'
-                  ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/20 font-bold'
-                  : 'text-slate-600 hover:text-blue-600 hover:bg-slate-100/80'
+                  ? 'bg-amber-500 text-slate-950 font-bold shadow-sm'
+                  : 'text-slate-300 hover:text-white hover:bg-slate-800'
               }`}
             >
               <Building2 className="w-3.5 h-3.5" />
@@ -85,10 +83,10 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
 
             <button
               onClick={() => setActiveTab('contact')}
-              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
+              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all ${
                 activeTab === 'contact'
-                  ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/20 font-bold'
-                  : 'text-slate-600 hover:text-blue-600 hover:bg-slate-100/80'
+                  ? 'bg-amber-500 text-slate-950 font-bold shadow-sm'
+                  : 'text-slate-300 hover:text-white hover:bg-slate-800'
               }`}
             >
               <Mail className="w-3.5 h-3.5" />
@@ -97,10 +95,10 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
 
             <button
               onClick={() => setActiveTab('terms')}
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all ${
+              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all ${
                 activeTab === 'terms'
-                  ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/20 font-bold'
-                  : 'text-slate-600 hover:text-blue-600 hover:bg-slate-100/80'
+                  ? 'bg-amber-500 text-slate-950 font-bold shadow-sm'
+                  : 'text-slate-300 hover:text-white hover:bg-slate-800'
               }`}
             >
               <ShieldCheck className="w-3.5 h-3.5" />
@@ -109,9 +107,9 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
 
             <button
               onClick={() => setActiveTab('inquiry')}
-              className="ml-2 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:to-indigo-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-sm shadow-blue-500/25 hover:shadow-md hover:shadow-blue-500/30 flex items-center gap-2 group"
+              className="ml-3 bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold px-4 py-2.5 rounded-lg transition-all shadow-md flex items-center gap-2"
             >
-              <span>Start Visa / Attestation Inquiry</span>
+              <span>Submit Inquiry</span>
             </button>
           </nav>
 
@@ -119,7 +117,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+              className="p-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors border border-slate-700"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -131,31 +129,31 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-slate-200 bg-white/95 backdrop-blur-xl px-4 pt-3 pb-6 space-y-2 shadow-xl animate-in slide-in-from-top duration-200">
+        <div className="md:hidden border-t border-slate-800 bg-slate-900 px-4 pt-3 pb-6 space-y-2 shadow-xl">
           <button
             onClick={() => { setActiveTab('search'); setMobileMenuOpen(false); }}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all ${
-              activeTab === 'search' ? 'bg-blue-600 text-white' : 'text-slate-700 hover:bg-slate-100'
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition-all ${
+              activeTab === 'search' ? 'bg-amber-500 text-slate-950' : 'text-slate-300 hover:bg-slate-800'
             }`}
           >
-            <Sparkles className="w-4 h-4" />
-            <span>Country Lookup &amp; Requirement Checker</span>
+            <Globe className="w-4 h-4" />
+            <span>Outbound Visa Countries</span>
           </button>
 
           <button
             onClick={() => { setActiveTab('services'); setMobileMenuOpen(false); }}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all ${
-              activeTab === 'services' ? 'bg-blue-600 text-white' : 'text-slate-700 hover:bg-slate-100'
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition-all ${
+              activeTab === 'services' ? 'bg-amber-500 text-slate-950' : 'text-slate-300 hover:bg-slate-800'
             }`}
           >
             <FileText className="w-4 h-4" />
-            <span>Our Services &amp; Legalisation</span>
+            <span>South African Document Legalisation</span>
           </button>
 
           <button
             onClick={() => { setActiveTab('about'); setMobileMenuOpen(false); }}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all ${
-              activeTab === 'about' ? 'bg-blue-600 text-white' : 'text-slate-700 hover:bg-slate-100'
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition-all ${
+              activeTab === 'about' ? 'bg-amber-500 text-slate-950' : 'text-slate-300 hover:bg-slate-800'
             }`}
           >
             <Building2 className="w-4 h-4" />
@@ -164,8 +162,8 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
 
           <button
             onClick={() => { setActiveTab('contact'); setMobileMenuOpen(false); }}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all ${
-              activeTab === 'contact' ? 'bg-blue-600 text-white' : 'text-slate-700 hover:bg-slate-100'
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition-all ${
+              activeTab === 'contact' ? 'bg-amber-500 text-slate-950' : 'text-slate-300 hover:bg-slate-800'
             }`}
           >
             <Mail className="w-4 h-4" />
@@ -174,8 +172,8 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
 
           <button
             onClick={() => { setActiveTab('terms'); setMobileMenuOpen(false); }}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all ${
-              activeTab === 'terms' ? 'bg-blue-600 text-white' : 'text-slate-700 hover:bg-slate-100'
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition-all ${
+              activeTab === 'terms' ? 'bg-amber-500 text-slate-950' : 'text-slate-300 hover:bg-slate-800'
             }`}
           >
             <ShieldCheck className="w-4 h-4" />
@@ -185,9 +183,9 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
           <div className="pt-2">
             <button
               onClick={() => { setActiveTab('inquiry'); setMobileMenuOpen(false); }}
-              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-sm py-3 rounded-xl shadow-md flex items-center justify-center gap-2"
+              className="w-full bg-amber-500 text-slate-950 font-bold text-sm py-3 rounded-lg shadow-md flex items-center justify-center gap-2"
             >
-              <span>Get Free Quote / Inquiry</span>
+              <span>Submit General Inquiry</span>
             </button>
           </div>
         </div>
@@ -195,3 +193,4 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
     </header>
   );
 };
+
