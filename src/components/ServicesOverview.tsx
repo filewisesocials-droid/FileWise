@@ -1,5 +1,6 @@
 import React from 'react';
 import { ShieldCheck, Building2, FileCheck, Languages, Truck, CheckCircle2, ArrowRight, PlaneTakeoff, Stamp } from 'lucide-react';
+import { motion } from 'motion/react';
 
 interface ServicesOverviewProps {
   onSelectService: (serviceName: string) => void;
@@ -52,18 +53,18 @@ export const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onSelectServ
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-slate-100 text-slate-900 border-b border-slate-200">
+    <section className="py-16 sm:py-20 bg-[#f8f5ee] text-[#2b241d] border-b-2 border-[#c8a46b]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-900 bg-amber-100 border border-amber-200 px-3.5 py-1.5 rounded shadow-2xs">
-            <Stamp className="w-3.5 h-3.5 text-amber-700" />
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#7a5418] bg-[#f4ecd9] border border-[#c8a46b]/50 px-3.5 py-1.5 rounded-full shadow-2xs">
+            <Stamp className="w-3.5 h-3.5 text-[#b48332]" />
             <span>South African Consular &amp; Visa Advisory Services</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#2b241d] tracking-tight">
             Our Core Services
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-sans max-w-2xl mx-auto">
+          <p className="text-[#5c5044] text-sm sm:text-base leading-relaxed font-sans max-w-2xl mx-auto">
             Providing outbound visa assistance and legal document processing within South Africa for personal, academic, and commercial documents.
           </p>
         </div>
@@ -72,32 +73,37 @@ export const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onSelectServ
           {services.map((s, idx) => {
             const IconComponent = s.icon;
             return (
-              <div
+              <motion.div
                 key={idx}
-                className="bg-white border border-slate-200 hover:border-amber-400 rounded-xl p-6 sm:p-7 transition-all duration-200 shadow-md hover:shadow-xl flex flex-col justify-between group"
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: idx * 0.08 }}
+                whileHover={{ y: -4 }}
+                className="bg-white border-2 border-[#c8a46b]/40 hover:border-[#b48332] rounded-2xl p-6 sm:p-7 transition-all duration-300 shadow-sm hover:shadow-lg flex flex-col justify-between group"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-lg bg-slate-900 text-amber-400 flex items-center justify-center mb-4 border border-slate-800 shadow-xs">
-                    <IconComponent className="w-6 h-6" />
+                  <div className="w-12 h-12 rounded-xl bg-[#f4ecd9] text-[#9e7127] flex items-center justify-center mb-4 border-2 border-[#c8a46b]/50 shadow-2xs group-hover:scale-105 transition-transform">
+                    <IconComponent className="w-6 h-6 text-[#b48332]" />
                   </div>
 
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-2.5 py-1 rounded border border-amber-200 inline-block">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#7a5418] bg-[#fbf5eb] px-2.5 py-1 rounded-full border border-[#c8a46b]/40 inline-block">
                     {s.tag}
                   </span>
 
-                  <h3 className="text-lg font-serif font-bold text-slate-900 mt-3 mb-2">
+                  <h3 className="text-lg font-serif font-bold text-[#2b241d] mt-3 mb-2 group-hover:text-[#9e7127] transition-colors">
                     {s.title}
                   </h3>
 
-                  <p className="text-slate-600 text-xs leading-relaxed mb-5 font-sans">
+                  <p className="text-[#5c5044] text-xs leading-relaxed mb-5 font-sans">
                     {s.description}
                   </p>
 
-                  <ul className="space-y-2 text-xs text-slate-700 mb-6 border-t border-slate-100 pt-4">
+                  <ul className="space-y-2 text-xs text-[#5c5044] mb-6 border-t border-[#ebdcc4] pt-4">
                     {s.features.map((feat, fIdx) => (
                       <li key={fIdx} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                        <span className="font-medium text-slate-800">{feat}</span>
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#2e7d32] shrink-0 mt-0.5" />
+                        <span className="font-medium text-[#2b241d]">{feat}</span>
                       </li>
                     ))}
                   </ul>
@@ -105,12 +111,12 @@ export const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onSelectServ
 
                 <button
                   onClick={() => onSelectService(s.title)}
-                  className="w-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-3 rounded-lg transition-all flex items-center justify-center gap-2 shadow-sm"
+                  className="w-full bg-[#b48332] hover:bg-[#9f7228] text-white text-xs font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-xs border border-[#9a6d23]"
                 >
                   <span>Inquire About This Service</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
+                  <ArrowRight className="w-3.5 h-3.5 text-amber-100" />
                 </button>
-              </div>
+              </motion.div>
             );
           })}
         </div>

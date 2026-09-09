@@ -6,28 +6,35 @@
     font-family: Georgia, Cambria, "Times New Roman", Times, serif;
   }
 
-  /* Refined, high-trust executive shadows and borders */
+  /* Refined, high-trust light mode executive cards with professional golden-brown edges */
   .executive-card {
     background-color: #ffffff;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 4px -1px rgba(15, 23, 42, 0.03);
+    border: 1px solid rgba(200, 164, 107, 0.45);
+    box-shadow: 0 4px 20px -2px rgba(180, 131, 50, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
     transition: all 0.25s ease-in-out;
   }
 
   .executive-card:hover {
-    border-color: #cbd5e1;
-    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 4px 6px -2px rgba(15, 23, 42, 0.04);
+    border-color: #b48332;
+    box-shadow: 0 10px 25px -4px rgba(180, 131, 50, 0.12), 0 4px 10px -2px rgba(180, 131, 50, 0.06);
+  }
+
+  /* Golden brown border highlight */
+  .gold-edge {
+    border-color: #c8a46b;
+  }
+
+  .gold-edge-subtle {
+    border-color: rgba(200, 164, 107, 0.4);
+  }
+
+  .gold-edge-strong {
+    border-color: #b48332;
   }
 
   .executive-badge-gold {
-    background-color: #fef3c7;
-    color: #92400e;
-    border: 1px solid #fde68a;
-  }
-
-  .executive-badge-navy {
-    background-color: #eff6ff;
-    color: #1e40af;
-    border: 1px solid #bfdbfe;
+    background-color: #fcf6eb;
+    color: #8a5716;
+    border: 1px solid #dfbe87;
   }
 }

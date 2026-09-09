@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { HelpCircle, ChevronDown } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 export const FaqSection: React.FC = () => {
   const faqs = [
@@ -32,17 +33,17 @@ export const FaqSection: React.FC = () => {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section className="py-16 bg-slate-50 text-slate-900 border-b border-slate-200 font-sans">
+    <section className="py-16 bg-[#faf8f5] text-[#2b241d] border-b-2 border-[#c8a46b]/30 font-sans">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-10">
-          <span className="text-xs font-bold uppercase tracking-wider text-amber-900 bg-amber-100 px-3 py-1 rounded border border-amber-200">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#7a5418] bg-[#f4ecd9] px-3.5 py-1.5 rounded-full border border-[#c8a46b]/50 shadow-2xs inline-block">
             Frequently Asked Questions
           </span>
-          <h2 className="text-3xl font-serif font-bold text-slate-900 mt-3">
+          <h2 className="text-3xl font-serif font-bold text-[#2b241d] mt-3">
             Visa &amp; Legalisation Knowledge Base
           </h2>
-          <p className="text-slate-600 text-sm mt-2">
+          <p className="text-[#5c5044] text-sm mt-2">
             Clear guidelines on outbound visas, DIRCO Hague Apostilles, and Pretoria diplomatic attestations.
           </p>
         </div>
@@ -51,27 +52,43 @@ export const FaqSection: React.FC = () => {
           {faqs.map((faq, idx) => {
             const isOpen = openIdx === idx;
             return (
-              <div
+              <motion.div
                 key={idx}
-                className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-2xs transition-colors"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: idx * 0.05 }}
+                className={`bg-white border-2 rounded-2xl overflow-hidden shadow-2xs transition-all ${
+                  isOpen ? 'border-[#b48332] shadow-sm' : 'border-[#c8a46b]/40 hover:border-[#b48332]/70'
+                }`}
               >
                 <button
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
-                  className="w-full text-left p-5 flex items-center justify-between gap-4 font-serif font-bold text-sm sm:text-base text-slate-900 hover:text-amber-800 transition-colors"
+                  className="w-full text-left p-5 flex items-center justify-between gap-4 font-serif font-bold text-sm sm:text-base text-[#2b241d] hover:text-[#9e7127] transition-colors"
                 >
                   <span className="flex items-center gap-3">
-                    <HelpCircle className="w-4 h-4 text-amber-600 shrink-0" />
+                    <HelpCircle className="w-4 h-4 text-[#b48332] shrink-0" />
                     <span>{faq.q}</span>
                   </span>
-                  <ChevronDown className={`w-5 h-5 text-slate-400 shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`w-5 h-5 text-[#8c7b6d] shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#b48332]' : ''}`} />
                 </button>
 
-                {isOpen && (
-                  <div className="px-5 pb-5 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed font-sans border-t border-slate-100 mt-1 pt-3">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-5 pb-5 text-xs sm:text-sm text-[#5c5044] leading-relaxed font-sans border-t border-[#ebdcc4] pt-3 bg-[#fbf9f5]/50">
+                        {faq.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             );
           })}
         </div>
