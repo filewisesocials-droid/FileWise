@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Send, CheckCircle2, ShieldCheck, FileCheck2, Globe, Building2, MessageCircle, Mail, Copy, Check, ExternalLink, Stamp, PlaneTakeoff } from 'lucide-react';
+import { Send, CheckCircle2, ShieldCheck, FileCheck2, Globe, Building2, MessageCircle, Mail, Copy, Check, ExternalLink, Stamp, PlaneTakeoff, CreditCard } from 'lucide-react';
 import { motion } from 'motion/react';
 import { COUNTRIES } from '../data/countries';
 import { DOCUMENT_TYPES } from '../data/documents';
+import { PayPalButton, PayPalLogo } from './PayPalButton';
 
 interface InquiryFormProps {
   initialDestCode?: string;
@@ -221,6 +222,25 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({
                   <div className="text-[10px] text-[#5c5044] font-normal">whatsapp:// Protocol</div>
                 </div>
               </a>
+            </div>
+
+            {/* PayPal Fee / Retainer Payment Option */}
+            <div className="bg-[#fbf9f5] border-2 border-[#ffc439]/70 rounded-2xl p-4 sm:p-5 text-left flex flex-col sm:flex-row items-center justify-between gap-4 shadow-2xs">
+              <div className="flex items-start gap-3.5">
+                <div className="w-10 h-10 rounded-xl bg-white border border-[#e0aa2b] flex items-center justify-center shrink-0 shadow-2xs mt-0.5">
+                  <PayPalLogo className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-xs font-serif font-bold text-[#2b241d] flex items-center gap-2">
+                    <span>Settle Consultation / Facilitation Fee via PayPal</span>
+                    <span className="text-[10px] font-mono text-[#003087] bg-blue-50 border border-blue-200 px-2 py-0.5 rounded font-bold">@FileWise</span>
+                  </div>
+                  <p className="text-[11px] text-[#5c5044] mt-1 leading-relaxed">
+                    Have an invoice or requested retainer? Pay securely via PayPal with any debit/credit card. Please include your reference <strong className="font-mono text-[#7a5418]">{submittedRef}</strong> in the payment note.
+                  </p>
+                </div>
+              </div>
+              <PayPalButton referenceId={submittedRef} size="sm" className="shrink-0 w-full sm:w-auto" />
             </div>
 
             {/* Copy Message Section */}

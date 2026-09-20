@@ -1,11 +1,13 @@
 import React from 'react';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, ExternalLink, Lock, CreditCard } from 'lucide-react';
+import { PayPalLogo } from './PayPalButton';
 
 interface FooterProps {
   setActiveTab: (tab: any) => void;
+  onOpenPayment?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
+export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenPayment }) => {
   return (
     <footer className="bg-[#f8f5ee] text-[#5c5044] text-xs border-t-2 border-[#c8a46b]/40 font-sans">
       
@@ -70,6 +72,15 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
             <li>
               <button onClick={() => setActiveTab('terms')} className="hover:text-[#9e7127] transition-colors">
                 Terms &amp; Conditions
+              </button>
+            </li>
+            <li>
+              <button 
+                onClick={() => setActiveTab('payments')} 
+                className="hover:text-[#9e7127] transition-colors flex items-center gap-1.5 font-bold text-[#b48332]"
+              >
+                <CreditCard className="w-3.5 h-3.5" />
+                <span>Client Payments (EFT &amp; PayPal)</span>
               </button>
             </li>
           </ul>
@@ -173,8 +184,10 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
             © {new Date().getFullYear()} Filewise Legalisation Solutions. All Rights Reserved.
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 flex-wrap justify-center">
             <button onClick={() => setActiveTab('about')} className="hover:text-[#9e7127] transition-colors">About Us</button>
+            <span className="text-[#c8a46b]">•</span>
+            <button onClick={() => setActiveTab('payments')} className="hover:text-[#9e7127] transition-colors font-semibold text-[#7a5418]">Payments</button>
             <span className="text-[#c8a46b]">•</span>
             <button onClick={() => setActiveTab('contact')} className="hover:text-[#9e7127] transition-colors">Contact Us</button>
             <span className="text-[#c8a46b]">•</span>

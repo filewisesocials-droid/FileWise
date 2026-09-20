@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Search, MapPin, Download, AlertCircle, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Search, MapPin, Download, AlertCircle, ArrowRight, ShieldCheck, CreditCard } from 'lucide-react';
 import { motion } from 'motion/react';
 import { OrderTrackItem } from '../types';
 import { INITIAL_TRACKING_ORDERS } from '../data/tracking';
+import { PayPalButton, PayPalLogo } from './PayPalButton';
 
 interface TrackingViewProps {
   initialTrackId?: string;
@@ -218,6 +219,25 @@ export const TrackingView: React.FC<TrackingViewProps> = ({ initialTrackId = 'FW
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* Invoice & Online PayPal Settlement */}
+            <div className="bg-[#fbf9f5] border-2 border-[#ffc439]/60 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-2xs">
+              <div className="flex items-start gap-3.5">
+                <div className="w-10 h-10 rounded-xl bg-white border border-[#e0aa2b] flex items-center justify-center shrink-0 shadow-2xs mt-0.5">
+                  <PayPalLogo className="w-5 h-5" />
+                </div>
+                <div>
+                  <h5 className="font-serif font-bold text-sm text-[#2b241d] flex items-center gap-2">
+                    <span>Settle Invoiced Fees or Disbursements via PayPal</span>
+                    <span className="text-[10px] font-mono text-[#003087] bg-blue-50 border border-blue-200 px-2 py-0.5 rounded font-bold">@FileWise</span>
+                  </h5>
+                  <p className="text-xs text-[#5c5044] mt-1 leading-relaxed">
+                    Paying an embassy fee, apostille surcharge, or courier balance? Click below to pay online via PayPal with any debit/credit card. Note reference <strong className="font-mono text-[#7a5418]">{currentOrder.id}</strong> on payment.
+                  </p>
+                </div>
+              </div>
+              <PayPalButton referenceId={currentOrder.id} size="sm" className="shrink-0 w-full sm:w-auto" />
             </div>
 
             {/* Courier & Security details */}

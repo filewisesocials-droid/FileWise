@@ -9,13 +9,16 @@ import { FaqSection } from './components/FaqSection';
 import { AboutUs } from './components/AboutUs';
 import { ContactUs } from './components/ContactUs';
 import { TermsAndConditions } from './components/TermsAndConditions';
+import { PaymentsView } from './components/PaymentsView';
 import { Footer } from './components/Footer';
+import { PaymentModal } from './components/PaymentModal';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'search' | 'inquiry' | 'tracking' | 'services' | 'faq' | 'about' | 'terms' | 'contact'>('search');
+  const [activeTab, setActiveTab] = useState<'search' | 'inquiry' | 'tracking' | 'services' | 'faq' | 'about' | 'terms' | 'contact' | 'payments'>('search');
   
   const [inquiryDest, setInquiryDest] = useState('AE');
   const [activeTrackId, setActiveTrackId] = useState('FW-98214');
+  const [isPaymentOpen, setIsPaymentOpen] = useState(false);
 
   // Automatically scroll to top whenever navigation tab changes
   useEffect(() => {
@@ -44,6 +47,7 @@ export default function App() {
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         onOpenQuickTrack={handleOpenQuickTrack}
+        onOpenPayment={() => setIsPaymentOpen(true)}
       />
 
       {/* Main Content Body */}
@@ -98,16 +102,33 @@ export default function App() {
         )}
 
         {activeTab === 'contact' && (
-          <ContactUs onStartInquiry={() => setActiveTab('inquiry')} />
+          <ContactUs 
+            onStartInquiry={() => setActiveTab('inquiry')} 
+            onNavigateToPayments={() => setActiveTab('payments')}
+          />
         )}
 
         {activeTab === 'terms' && (
           <TermsAndConditions onStartInquiry={() => setActiveTab('inquiry')} />
         )}
+
+        {activeTab === 'payments' && (
+          <PaymentsView onStartInquiry={() => setActiveTab('inquiry')} />
+        )}
       </main>
 
       {/* Footer */}
-      <Footer setActiveTab={setActiveTab} />
+      <Footer 
+        setActiveTab={setActiveTab} 
+        onOpenPayment={() => setIsPaymentOpen(true)}
+      />
+
+      {/* Official PayPal Payment Modal */}
+      <PaymentModal
+        isOpen={isPaymentOpen}
+        onClose={() => setIsPaymentOpen(false)}
+        prefilledRef={activeTrackId}
+      />
 
     </div>
   );

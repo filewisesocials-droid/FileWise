@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { FileText, Menu, X, Building2, Mail, ShieldCheck, Globe } from 'lucide-react';
+import { FileText, Menu, X, Building2, Mail, ShieldCheck, Globe, CreditCard } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface HeaderProps {
-  activeTab: 'search' | 'inquiry' | 'tracking' | 'services' | 'faq' | 'about' | 'terms' | 'contact';
-  setActiveTab: (tab: 'search' | 'inquiry' | 'tracking' | 'services' | 'faq' | 'about' | 'terms' | 'contact') => void;
+  activeTab: 'search' | 'inquiry' | 'tracking' | 'services' | 'faq' | 'about' | 'terms' | 'contact' | 'payments';
+  setActiveTab: (tab: 'search' | 'inquiry' | 'tracking' | 'services' | 'faq' | 'about' | 'terms' | 'contact' | 'payments') => void;
   onOpenQuickTrack?: (trackId: string) => void;
+  onOpenPayment?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
@@ -75,6 +76,18 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             </button>
 
             <button
+              onClick={() => setActiveTab('payments')}
+              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
+                activeTab === 'payments'
+                  ? 'bg-[#b48332] text-white font-bold shadow-xs border border-[#9a6d23]'
+                  : 'text-[#5c5044] hover:text-[#915e19] hover:bg-[#f6eee2] border border-transparent hover:border-[#c8a46b]/30'
+              }`}
+            >
+              <CreditCard className="w-3.5 h-3.5" />
+              <span>Client Payments</span>
+            </button>
+
+            <button
               onClick={() => setActiveTab('about')}
               className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
                 activeTab === 'about'
@@ -114,7 +127,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               onClick={() => setActiveTab('inquiry')}
-              className="ml-3 bg-[#b48332] hover:bg-[#9f7228] text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-sm border border-[#9a6d23] flex items-center gap-2"
+              className="ml-2 bg-[#b48332] hover:bg-[#9f7228] text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-sm border border-[#9a6d23] flex items-center gap-2"
             >
               <span>Submit Inquiry</span>
             </motion.button>
@@ -162,6 +175,16 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             >
               <FileText className="w-4 h-4" />
               <span>South African Document Legalisation</span>
+            </button>
+
+            <button
+              onClick={() => { setActiveTab('payments'); setMobileMenuOpen(false); }}
+              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all border ${
+                activeTab === 'payments' ? 'bg-[#b48332] text-white border-[#9a6d23]' : 'text-[#4c4035] hover:bg-[#f6eee2] border-transparent'
+              }`}
+            >
+              <CreditCard className="w-4 h-4" />
+              <span>Client Payments (EFT &amp; PayPal)</span>
             </button>
 
             <button

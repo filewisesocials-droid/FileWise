@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { Mail, MapPin, CheckCircle2, MessageCircle, Copy, Check, ExternalLink, Building2 } from 'lucide-react';
+import { Mail, MapPin, CheckCircle2, MessageCircle, Copy, Check, ExternalLink, Building2, CreditCard } from 'lucide-react';
 import { motion } from 'motion/react';
+import { PayPalLogo, PayPalButton } from './PayPalButton';
 
 interface ContactUsProps {
   onStartInquiry?: () => void;
+  onNavigateToPayments?: () => void;
 }
 
-export const ContactUs: React.FC<ContactUsProps> = ({ onStartInquiry }) => {
+export const ContactUs: React.FC<ContactUsProps> = ({ onStartInquiry, onNavigateToPayments }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -110,7 +112,7 @@ export const ContactUs: React.FC<ContactUsProps> = ({ onStartInquiry }) => {
         </motion.div>
 
         {/* Contact Info Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           
           {/* Phone & WhatsApp Card */}
           <motion.div 
@@ -149,41 +151,85 @@ export const ContactUs: React.FC<ContactUsProps> = ({ onStartInquiry }) => {
           {/* Email Info Card */}
           <motion.div 
             whileHover={{ y: -3 }}
-            className="bg-white border-2 border-[#c8a46b]/40 hover:border-[#b48332] p-6 rounded-2xl space-y-4 shadow-2xs transition-all"
+            className="bg-white border-2 border-[#c8a46b]/40 hover:border-[#b48332] p-6 rounded-2xl space-y-4 shadow-2xs transition-all flex flex-col justify-between"
           >
-            <div className="w-12 h-12 rounded-xl bg-[#f4ecd9] text-[#7a5418] flex items-center justify-center border border-[#c8a46b]/60 shadow-2xs">
-              <Mail className="w-6 h-6 text-[#b48332]" />
-            </div>
-            <div>
-              <h3 className="text-lg font-serif font-bold text-[#2b241d]">Email Address</h3>
-              <p className="text-xs text-[#5c5044] mt-1 font-sans">Direct response from our Pretoria advisors</p>
-            </div>
-            <div className="pt-2 border-t border-[#ebdcc4]">
-              <a
-                href="mailto:info@filewise.co.za"
-                className="text-base font-bold text-[#7a5418] hover:text-[#9e7127] transition-colors block"
-              >
-                info@filewise.co.za
-              </a>
+            <div className="space-y-4">
+              <div className="w-12 h-12 rounded-xl bg-[#f4ecd9] text-[#7a5418] flex items-center justify-center border border-[#c8a46b]/60 shadow-2xs">
+                <Mail className="w-6 h-6 text-[#b48332]" />
+              </div>
+              <div>
+                <h3 className="text-lg font-serif font-bold text-[#2b241d]">Email Address</h3>
+                <p className="text-xs text-[#5c5044] mt-1 font-sans">Direct response from our Pretoria advisors</p>
+              </div>
+              <div className="pt-2 border-t border-[#ebdcc4]">
+                <a
+                  href="mailto:info@filewise.co.za"
+                  className="text-base font-bold text-[#7a5418] hover:text-[#9e7127] transition-colors block"
+                >
+                  info@filewise.co.za
+                </a>
+              </div>
             </div>
           </motion.div>
 
           {/* Location Card */}
           <motion.div 
             whileHover={{ y: -3 }}
-            className="bg-white border-2 border-[#c8a46b]/40 hover:border-[#b48332] p-6 rounded-2xl space-y-4 shadow-2xs transition-all"
+            className="bg-white border-2 border-[#c8a46b]/40 hover:border-[#b48332] p-6 rounded-2xl space-y-4 shadow-2xs transition-all flex flex-col justify-between"
           >
-            <div className="w-12 h-12 rounded-xl bg-[#f4ecd9] text-[#7a5418] flex items-center justify-center border border-[#c8a46b]/60 shadow-2xs">
-              <MapPin className="w-6 h-6 text-[#b48332]" />
+            <div className="space-y-4">
+              <div className="w-12 h-12 rounded-xl bg-[#f4ecd9] text-[#7a5418] flex items-center justify-center border border-[#c8a46b]/60 shadow-2xs">
+                <MapPin className="w-6 h-6 text-[#b48332]" />
+              </div>
+              <div>
+                <h3 className="text-lg font-serif font-bold text-[#2b241d]">Headquarters</h3>
+                <p className="text-xs text-[#5c5044] mt-1 font-sans">Legal &amp; Consular Hub</p>
+              </div>
+              <div className="pt-2 border-t border-[#ebdcc4] text-xs text-[#5c5044] leading-relaxed font-medium">
+                National Legal Processing Operations<br />
+                Pretoria Diplomatic &amp; Consular Hubs<br />
+                South Africa
+              </div>
             </div>
-            <div>
-              <h3 className="text-lg font-serif font-bold text-[#2b241d]">Headquarters</h3>
-              <p className="text-xs text-[#5c5044] mt-1 font-sans">Legal &amp; Consular Hub</p>
-            </div>
-            <div className="pt-2 border-t border-[#ebdcc4] text-xs text-[#5c5044] leading-relaxed font-medium">
-              National Legal Processing Operations<br />
-              Pretoria Diplomatic &amp; Consular Hubs<br />
-              South Africa
+          </motion.div>
+
+          {/* Client Payments / EFT & PayPal Card */}
+          <motion.div 
+            whileHover={{ y: -3 }}
+            className="bg-white border-2 border-[#c8a46b]/50 hover:border-[#b48332] p-6 rounded-2xl space-y-4 shadow-2xs transition-all flex flex-col justify-between"
+          >
+            <div className="space-y-4">
+              <div className="w-12 h-12 rounded-xl bg-[#f4ecd9] text-[#7a5418] flex items-center justify-center border border-[#c8a46b]/60 shadow-2xs">
+                <CreditCard className="w-6 h-6 text-[#b48332]" />
+              </div>
+              <div>
+                <h3 className="text-lg font-serif font-bold text-[#2b241d]">Client Payments</h3>
+                <p className="text-xs text-[#5c5044] mt-1 font-sans">EFT (FNB) &amp; PayPal Settlement</p>
+              </div>
+              <div className="pt-2 border-t border-[#ebdcc4] space-y-2">
+                <p className="text-[11px] text-[#7a6b5e] leading-relaxed">
+                  Use your <strong className="text-[#7a5418]">Invoice Number</strong> as payment reference for fast file reconciliation.
+                </p>
+                {onNavigateToPayments ? (
+                  <button
+                    onClick={onNavigateToPayments}
+                    className="inline-flex items-center justify-center gap-1.5 w-full bg-[#f4ecd9] hover:bg-[#ebdcc4] text-[#7a5418] font-bold text-xs px-3.5 py-2 rounded-xl border border-[#c8a46b]/60 transition-all cursor-pointer"
+                  >
+                    <span>View Banking &amp; PayPal</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </button>
+                ) : (
+                  <a
+                    href="https://paypal.me/FileWise"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 w-full bg-[#ffc439] hover:bg-[#f5b82e] text-[#003087] font-bold text-xs px-4 py-2.5 rounded-xl shadow-2xs border border-[#e5ad27] transition-all"
+                  >
+                    <PayPalLogo className="w-4 h-4" />
+                    <span>Pay with PayPal</span>
+                  </a>
+                )}
+              </div>
             </div>
           </motion.div>
 
