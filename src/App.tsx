@@ -12,6 +12,7 @@ import { TermsAndConditions } from './components/TermsAndConditions';
 import { PaymentsView } from './components/PaymentsView';
 import { Footer } from './components/Footer';
 import { PaymentModal } from './components/PaymentModal';
+import { RugbyPromoModal } from './components/RugbyPromoModal';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<'search' | 'inquiry' | 'tracking' | 'services' | 'faq' | 'about' | 'terms' | 'contact' | 'payments'>('search');
@@ -19,6 +20,7 @@ export default function App() {
   const [inquiryDest, setInquiryDest] = useState('AE');
   const [activeTrackId, setActiveTrackId] = useState('FW-98214');
   const [isPaymentOpen, setIsPaymentOpen] = useState(false);
+  const [isPromoOpen, setIsPromoOpen] = useState(true);
 
   // Automatically scroll to top whenever navigation tab changes
   useEffect(() => {
@@ -128,6 +130,13 @@ export default function App() {
         isOpen={isPaymentOpen}
         onClose={() => setIsPaymentOpen(false)}
         prefilledRef={activeTrackId}
+      />
+
+      {/* Rugby Championship Supporter Tour Promotional Modal */}
+      <RugbyPromoModal
+        isOpen={isPromoOpen}
+        onClose={() => setIsPromoOpen(false)}
+        onStartInquiry={(countryCode) => handleStartInquiry(countryCode || 'NZ')}
       />
 
     </div>
