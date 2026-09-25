@@ -430,9 +430,14 @@ export const CompetitionPage: React.FC<CompetitionPageProps> = ({
                 Where a customer has multiple separate qualifying visa applications, each qualifying application may constitute a separate entry, subject to the official Terms &amp; Conditions.
               </p>
 
-              {/* Crucial anti-splitting rule */}
-              <div className="bg-[#fff9f0] border-l-4 border-[#b48332] p-3 rounded-r-xl text-xs text-[#665749] leading-relaxed">
-                <strong className="text-[#2b241d]">Important Rule:</strong> Customers cannot create multiple entries simply by splitting one normal transaction into multiple invoices. Only genuine, separate qualifying visa applications will generate distinct entries.
+              {/* Crucial anti-splitting rule & multi-visa invoice rule */}
+              <div className="space-y-2 mb-2">
+                <div className="bg-[#fbf4e8] border-l-4 border-[#b48332] p-3 rounded-r-xl text-xs text-[#665749] leading-relaxed">
+                  <strong className="text-[#2b241d]">Multiple Visas on 1 Invoice:</strong> If you pay for more than 1 visa application on a single invoice (e.g. family members or a group), that invoice counts as <strong>one (1) entry</strong>.
+                </div>
+                <div className="bg-[#fff9f0] border-l-4 border-[#b48332] p-3 rounded-r-xl text-xs text-[#665749] leading-relaxed">
+                  <strong className="text-[#2b241d]">Anti-Splitting Rule:</strong> Customers cannot create multiple entries simply by splitting one normal transaction into multiple invoices. Only genuine, separate qualifying visa applications will generate distinct entries.
+                </div>
               </div>
             </div>
 
@@ -462,9 +467,17 @@ export const CompetitionPage: React.FC<CompetitionPageProps> = ({
               One winner will receive a <strong>100% refund of the eligible FileWise visa costs</strong> associated with their winning qualifying application.
             </p>
 
-            <p className="text-xs sm:text-sm text-[#94a3b8] leading-relaxed mb-6">
+            <p className="text-xs sm:text-sm text-[#94a3b8] leading-relaxed mb-4">
               This includes eligible amounts charged by FileWise for the qualifying visa application, including the FileWise service fee and eligible visa-related costs included on the qualifying FileWise invoice, subject to the official Terms &amp; Conditions.
             </p>
+
+            {/* Crucial Multi-Visa on 1 Invoice Prize Clarification */}
+            <div className="mb-6 p-3.5 rounded-xl bg-[#b48332]/20 border border-[#dfbe87]/50 text-xs text-[#fce4a6] leading-relaxed">
+              <strong className="text-white block font-bold text-xs uppercase tracking-wide mb-1">
+                Multiple Visas on One Invoice Refund Limit:
+              </strong>
+              If a person pays for more than 1 visa on 1 invoice and that invoice is selected as the winning entry, the 100% refund is paid back for <strong>ONE (1) visa application payment</strong> on that invoice—not the entirety of the invoice. The refund will be paid directly back to the person who paid for the invoice.
+            </div>
 
             {/* Clear Exclusions & Sovereign Authority Disclaimer */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-4 border-t border-white/10 text-xs">
@@ -660,6 +673,10 @@ export const CompetitionPage: React.FC<CompetitionPageProps> = ({
 
           {[
             {
+              q: "What happens if I pay for more than one visa on a single invoice?",
+              a: "If you pay for more than 1 visa application on 1 invoice (such as for family members or a group), that invoice counts as ONE (1) competition entry. If that invoice wins, the 100% refund is paid back for ONE (1) visa application payment on the invoice, not the entirety of the invoice. The refund is paid directly to the person who paid the invoice."
+            },
+            {
               q: "Does any visa application qualify, or only Australia/NZ?",
               a: "Any qualifying paid visa application to any destination processed by FileWise during the promotional window (01 October 2026 to 31 August 2027) may qualify, including Australia, New Zealand, the United Kingdom, USA, Canada, Schengen/Europe, and Gulf nations, subject to the official Terms & Conditions."
             },
@@ -813,28 +830,34 @@ export const CompetitionPage: React.FC<CompetitionPageProps> = ({
                   </ul>
                 </div>
 
-                {/* 6. Multiple Qualifying Applications & Anti-Splitting Provision */}
+                {/* 6. Multiple Qualifying Applications, Combined Invoices & Anti-Splitting Provision */}
                 <div>
                   <h4 className="font-serif font-bold text-base text-[#2b241d] mb-1.5 uppercase">
-                    6. Multiple Applications &amp; Prohibition of Invoice Splitting
+                    6. Multiple Applications, Combined Invoices &amp; Prohibition of Invoice Splitting
                   </h4>
                   <p>
                     Where a customer legitimately requires and completes multiple separate qualifying visa applications (for example, distinct individual applications for separate family members or multiple separate itineraries), each qualifying paid invoice shall constitute a separate valid entry into the register.
                   </p>
                   <p className="mt-1.5 p-2.5 bg-[#fbf4e8] border border-[#dfbe87] rounded-lg text-xs font-medium text-[#8a5716]">
+                    <strong>Single Entry for Combined Invoices:</strong> Where an invoice covers more than one (1) visa application (for example, multiple family members or applicants billed together on a single invoice), that invoice counts as <strong>one (1) single entry</strong> into the competition draw.
+                  </p>
+                  <p className="mt-1.5 p-2.5 bg-[#fff9f0] border border-[#dfbe87] rounded-lg text-xs font-medium text-[#665749]">
                     <strong>Strict Anti-Splitting Clause:</strong> Entrants are strictly prohibited from attempting to generate multiple entries by splitting a single ordinary transaction, fee schedule, or visa matter into multiple partial or divided invoices. Any artificial splitting of invoices will void all associated entries.
                   </p>
                 </div>
 
-                {/* 7. Prize Definition */}
+                {/* 7. Prize Definition & Multi-Visa Refund Limitations */}
                 <div>
                   <h4 className="font-serif font-bold text-base text-[#2b241d] mb-1.5 uppercase">
-                    7. Prize Definition
+                    7. Prize Definition &amp; Refund Limitations
                   </h4>
                   <p>
                     There will be exactly <strong>one (1) winner</strong>. The prize consists of a <strong>100% refund of the eligible FileWise visa costs</strong> charged by FileWise on the winning qualifying invoice. This includes FileWise service fees and eligible consular/visa-related disbursements itemised on the qualifying FileWise invoice.
                   </p>
-                  <p className="mt-1 text-xs text-[#7a6b5e]">
+                  <div className="mt-2 p-3 bg-[#fbf4e8] border border-[#dfbe87] rounded-xl text-xs font-medium text-[#8a5716]">
+                    <strong>Important Refund Rule for Multiple Visas on One Invoice:</strong> If a person pays for more than one (1) visa on a single invoice, that invoice counts as one (1) entry, and in the event that this invoice is drawn as the winning entry, the 100% refund will strictly apply to <strong>ONE (1) visa application payment</strong> on that invoice, and <strong>not the entirety of the invoice</strong>. The refund will be disbursed exclusively to the individual who paid for the qualifying invoice.
+                  </div>
+                  <p className="mt-2 text-xs text-[#7a6b5e]">
                     <strong>Exclusions:</strong> The prize strictly excludes flights, hotel or lodge accommodation, tournament or match tickets, airport transfers, travel insurance, car rentals, luggage costs, food, spending money, or any other personal expenses.
                   </p>
                 </div>
