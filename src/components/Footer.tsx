@@ -70,6 +70,15 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenPayment }) =
               </button>
             </li>
             <li>
+              <button 
+                onClick={() => setActiveTab('competitions')} 
+                className="hover:text-[#9e7127] transition-colors flex items-center gap-1.5 font-bold text-[#8a5716]"
+              >
+                <span>Competitions (Rugby 2027)</span>
+                <span className="text-[9px] uppercase px-1.5 py-0.2 bg-[#fbf4e8] border border-[#dfbe87] rounded">1 Active</span>
+              </button>
+            </li>
+            <li>
               <button onClick={() => setActiveTab('terms')} className="hover:text-[#9e7127] transition-colors">
                 Terms &amp; Conditions
               </button>
@@ -190,6 +199,8 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenPayment }) =
             <button onClick={() => setActiveTab('payments')} className="hover:text-[#9e7127] transition-colors font-semibold text-[#7a5418]">Payments</button>
             <span className="text-[#c8a46b]">•</span>
             <button onClick={() => setActiveTab('contact')} className="hover:text-[#9e7127] transition-colors">Contact Us</button>
+            <span className="text-[#c8a46b]">•</span>
+            <button onClick={() => setActiveTab('competition')} className="hover:text-[#9e7127] transition-colors font-semibold text-[#8a5716]">Competition</button>
             <span className="text-[#c8a46b]">•</span>
             <button onClick={() => setActiveTab('terms')} className="hover:text-[#9e7127] transition-colors">Terms &amp; Conditions</button>
           </div>

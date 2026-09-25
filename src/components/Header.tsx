@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { FileText, Menu, X, Building2, Mail, ShieldCheck, Globe, CreditCard } from 'lucide-react';
+import { FileText, Menu, X, Building2, Mail, ShieldCheck, Globe, CreditCard, Trophy } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface HeaderProps {
-  activeTab: 'search' | 'inquiry' | 'tracking' | 'services' | 'faq' | 'about' | 'terms' | 'contact' | 'payments';
-  setActiveTab: (tab: 'search' | 'inquiry' | 'tracking' | 'services' | 'faq' | 'about' | 'terms' | 'contact' | 'payments') => void;
+  activeTab: 'search' | 'inquiry' | 'tracking' | 'services' | 'faq' | 'about' | 'terms' | 'contact' | 'payments' | 'competitions' | 'competition';
+  setActiveTab: (tab: 'search' | 'inquiry' | 'tracking' | 'services' | 'faq' | 'about' | 'terms' | 'contact' | 'payments' | 'competitions' | 'competition') => void;
   onOpenQuickTrack?: (trackId: string) => void;
   onOpenPayment?: () => void;
 }
@@ -73,6 +73,19 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             >
               <FileText className="w-3.5 h-3.5" />
               <span>SA Document Legalisation</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('competitions')}
+              id="nav-competitions-btn"
+              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
+                activeTab === 'competitions' || activeTab === 'competition'
+                  ? 'bg-[#b48332] text-white font-bold shadow-xs border border-[#9a6d23]'
+                  : 'text-[#8a5716] bg-[#fbf4e8]/60 hover:bg-[#fbf4e8] border border-[#dfbe87]/70 hover:border-[#b48332]'
+              }`}
+            >
+              <Trophy className="w-3.5 h-3.5 text-[#b48332]" />
+              <span className="font-bold">Competitions</span>
             </button>
 
             <button
@@ -175,6 +188,24 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             >
               <FileText className="w-4 h-4" />
               <span>South African Document Legalisation</span>
+            </button>
+
+            <button
+              onClick={() => { setActiveTab('competitions'); setMobileMenuOpen(false); }}
+              id="mobile-nav-competitions-btn"
+              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold transition-all border ${
+                activeTab === 'competitions' || activeTab === 'competition'
+                  ? 'bg-[#b48332] text-white border-[#9a6d23]' 
+                  : 'bg-[#fbf4e8]/70 text-[#8a5716] border-[#dfbe87] hover:bg-[#fbf4e8]'
+              }`}
+            >
+              <Trophy className="w-4 h-4 text-[#8a5716]" />
+              <div className="flex items-center justify-between w-full">
+                <span>COMPETITIONS</span>
+                <span className="text-[10px] font-black uppercase tracking-wider bg-[#b48332] text-white px-2 py-0.5 rounded shadow-2xs">
+                  Rugby 2027
+                </span>
+              </div>
             </button>
 
             <button

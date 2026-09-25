@@ -12,10 +12,11 @@ import { TermsAndConditions } from './components/TermsAndConditions';
 import { PaymentsView } from './components/PaymentsView';
 import { Footer } from './components/Footer';
 import { PaymentModal } from './components/PaymentModal';
-import { RugbyPromoModal } from './components/RugbyPromoModal';
+import { CompetitionPromoModal } from './components/CompetitionPromoModal';
+import { CompetitionPage } from './components/CompetitionPage';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'search' | 'inquiry' | 'tracking' | 'services' | 'faq' | 'about' | 'terms' | 'contact' | 'payments'>('search');
+  const [activeTab, setActiveTab] = useState<'search' | 'inquiry' | 'tracking' | 'services' | 'faq' | 'about' | 'terms' | 'contact' | 'payments' | 'competitions' | 'competition'>('search');
   
   const [inquiryDest, setInquiryDest] = useState('AE');
   const [activeTrackId, setActiveTrackId] = useState('FW-98214');
@@ -117,6 +118,13 @@ export default function App() {
         {activeTab === 'payments' && (
           <PaymentsView onStartInquiry={() => setActiveTab('inquiry')} />
         )}
+
+        {(activeTab === 'competitions' || activeTab === 'competition') && (
+          <CompetitionPage 
+            onStartInquiry={handleStartInquiry}
+            onOpenPayment={() => setIsPaymentOpen(true)}
+          />
+        )}
       </main>
 
       {/* Footer */}
@@ -132,11 +140,18 @@ export default function App() {
         prefilledRef={activeTrackId}
       />
 
-      {/* Rugby Championship Supporter Tour Promotional Modal */}
-      <RugbyPromoModal
+      {/* FileWise Rugby World Cup 2027 Visa Giveaway Promotional Modal */}
+      <CompetitionPromoModal
         isOpen={isPromoOpen}
         onClose={() => setIsPromoOpen(false)}
-        onStartInquiry={(countryCode) => handleStartInquiry(countryCode || 'NZ')}
+        onViewCompetition={() => {
+          setIsPromoOpen(false);
+          setActiveTab('competitions');
+        }}
+        onViewTerms={() => {
+          setIsPromoOpen(false);
+          setActiveTab('competitions');
+        }}
       />
 
     </div>
