@@ -12,6 +12,29 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const handleNavClick = (tab: HeaderProps['activeTab']) => {
+    setActiveTab(tab);
+    setMobileMenuOpen(false);
+
+    // Immediately reset scroll position to top
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
+    // Run again on animation frame and short timeout to guarantee top position even after DOM/drawer layout transitions
+    requestAnimationFrame(() => {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    });
+
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }, 50);
+  };
+
   return (
     <header className="sticky top-0 z-50 bg-[#fdfcf9]/95 backdrop-blur-md text-[#2b241d] border-b border-[#c8a46b]/40 shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,7 +43,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
           {/* Logo & Subtitle */}
           <div 
             className="flex items-center gap-3.5 cursor-pointer group"
-            onClick={() => setActiveTab('search')}
+            onClick={() => handleNavClick('search')}
           >
             <motion.div 
               whileHover={{ scale: 1.05, rotate: 1 }}
@@ -52,7 +75,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-1.5">
             <button
-              onClick={() => setActiveTab('search')}
+              onClick={() => handleNavClick('search')}
               className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
                 activeTab === 'search'
                   ? 'bg-[#b48332] text-white font-bold shadow-xs border border-[#9a6d23]'
@@ -64,7 +87,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             </button>
 
             <button
-              onClick={() => setActiveTab('services')}
+              onClick={() => handleNavClick('services')}
               className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
                 activeTab === 'services'
                   ? 'bg-[#b48332] text-white font-bold shadow-xs border border-[#9a6d23]'
@@ -76,7 +99,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             </button>
 
             <button
-              onClick={() => setActiveTab('competitions')}
+              onClick={() => handleNavClick('competitions')}
               id="nav-competitions-btn"
               className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
                 activeTab === 'competitions' || activeTab === 'competition'
@@ -89,7 +112,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             </button>
 
             <button
-              onClick={() => setActiveTab('payments')}
+              onClick={() => handleNavClick('payments')}
               className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
                 activeTab === 'payments'
                   ? 'bg-[#b48332] text-white font-bold shadow-xs border border-[#9a6d23]'
@@ -101,7 +124,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             </button>
 
             <button
-              onClick={() => setActiveTab('about')}
+              onClick={() => handleNavClick('about')}
               className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
                 activeTab === 'about'
                   ? 'bg-[#b48332] text-white font-bold shadow-xs border border-[#9a6d23]'
@@ -113,7 +136,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             </button>
 
             <button
-              onClick={() => setActiveTab('contact')}
+              onClick={() => handleNavClick('contact')}
               className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
                 activeTab === 'contact'
                   ? 'bg-[#b48332] text-white font-bold shadow-xs border border-[#9a6d23]'
@@ -125,7 +148,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             </button>
 
             <button
-              onClick={() => setActiveTab('terms')}
+              onClick={() => handleNavClick('terms')}
               className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
                 activeTab === 'terms'
                   ? 'bg-[#b48332] text-white font-bold shadow-xs border border-[#9a6d23]'
@@ -139,8 +162,8 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              onClick={() => setActiveTab('inquiry')}
-              className="ml-2 bg-[#b48332] hover:bg-[#9f7228] text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-sm border border-[#9a6d23] flex items-center gap-2"
+              onClick={() => handleNavClick('inquiry')}
+              className="ml-2 bg-[#b48332] hover:bg-[#9f7228] text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-sm border border-[#9a6d23] flex items-center gap-2 cursor-pointer"
             >
               <span>Submit Inquiry</span>
             </motion.button>
@@ -171,7 +194,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             className="md:hidden border-t border-[#c8a46b]/30 bg-[#fdfcf9] px-4 pt-3 pb-6 space-y-2 shadow-lg overflow-hidden"
           >
             <button
-              onClick={() => { setActiveTab('search'); setMobileMenuOpen(false); }}
+              onClick={() => handleNavClick('search')}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all border ${
                 activeTab === 'search' ? 'bg-[#b48332] text-white border-[#9a6d23]' : 'text-[#4c4035] hover:bg-[#f6eee2] border-transparent'
               }`}
@@ -181,7 +204,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             </button>
 
             <button
-              onClick={() => { setActiveTab('services'); setMobileMenuOpen(false); }}
+              onClick={() => handleNavClick('services')}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all border ${
                 activeTab === 'services' ? 'bg-[#b48332] text-white border-[#9a6d23]' : 'text-[#4c4035] hover:bg-[#f6eee2] border-transparent'
               }`}
@@ -191,7 +214,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             </button>
 
             <button
-              onClick={() => { setActiveTab('competitions'); setMobileMenuOpen(false); }}
+              onClick={() => handleNavClick('competitions')}
               id="mobile-nav-competitions-btn"
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold transition-all border ${
                 activeTab === 'competitions' || activeTab === 'competition'
@@ -209,7 +232,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             </button>
 
             <button
-              onClick={() => { setActiveTab('payments'); setMobileMenuOpen(false); }}
+              onClick={() => handleNavClick('payments')}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all border ${
                 activeTab === 'payments' ? 'bg-[#b48332] text-white border-[#9a6d23]' : 'text-[#4c4035] hover:bg-[#f6eee2] border-transparent'
               }`}
@@ -219,7 +242,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             </button>
 
             <button
-              onClick={() => { setActiveTab('about'); setMobileMenuOpen(false); }}
+              onClick={() => handleNavClick('about')}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all border ${
                 activeTab === 'about' ? 'bg-[#b48332] text-white border-[#9a6d23]' : 'text-[#4c4035] hover:bg-[#f6eee2] border-transparent'
               }`}
@@ -229,7 +252,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             </button>
 
             <button
-              onClick={() => { setActiveTab('contact'); setMobileMenuOpen(false); }}
+              onClick={() => handleNavClick('contact')}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all border ${
                 activeTab === 'contact' ? 'bg-[#b48332] text-white border-[#9a6d23]' : 'text-[#4c4035] hover:bg-[#f6eee2] border-transparent'
               }`}
@@ -239,7 +262,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             </button>
 
             <button
-              onClick={() => { setActiveTab('terms'); setMobileMenuOpen(false); }}
+              onClick={() => handleNavClick('terms')}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all border ${
                 activeTab === 'terms' ? 'bg-[#b48332] text-white border-[#9a6d23]' : 'text-[#4c4035] hover:bg-[#f6eee2] border-transparent'
               }`}
@@ -250,8 +273,8 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
 
             <div className="pt-2">
               <button
-                onClick={() => { setActiveTab('inquiry'); setMobileMenuOpen(false); }}
-                className="w-full bg-[#b48332] hover:bg-[#9f7228] text-white font-bold text-sm py-3 rounded-xl shadow-sm border border-[#9a6d23] flex items-center justify-center gap-2"
+                onClick={() => handleNavClick('inquiry')}
+                className="w-full bg-[#b48332] hover:bg-[#9f7228] text-white font-bold text-sm py-3 rounded-xl shadow-sm border border-[#9a6d23] flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Submit General Inquiry</span>
               </button>

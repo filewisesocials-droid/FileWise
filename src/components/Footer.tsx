@@ -8,6 +8,18 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenPayment }) => {
+  const handleFooterNav = (tab: any) => {
+    setActiveTab(tab);
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    requestAnimationFrame(() => {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    });
+  };
+
   return (
     <footer className="bg-[#f8f5ee] text-[#5c5044] text-xs border-t-2 border-[#c8a46b]/40 font-sans">
       
@@ -40,53 +52,53 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenPayment }) =
           <h4 className="font-serif font-bold text-[#2b241d] text-xs uppercase tracking-wider mb-3">Service Portals</h4>
           <ul className="space-y-2">
             <li>
-              <button onClick={() => setActiveTab('search')} className="hover:text-[#9e7127] transition-colors">
+              <button onClick={() => handleFooterNav('search')} className="hover:text-[#9e7127] transition-colors cursor-pointer">
                 Outbound Visa Countries
               </button>
             </li>
             <li>
-              <button onClick={() => setActiveTab('services')} className="hover:text-[#9e7127] transition-colors">
+              <button onClick={() => handleFooterNav('services')} className="hover:text-[#9e7127] transition-colors cursor-pointer">
                 SA Document Legalisation
               </button>
             </li>
             <li>
-              <button onClick={() => setActiveTab('inquiry')} className="hover:text-[#9e7127] transition-colors">
+              <button onClick={() => handleFooterNav('inquiry')} className="hover:text-[#9e7127] transition-colors cursor-pointer">
                 Submit General Inquiry
               </button>
             </li>
             <li>
-              <button onClick={() => setActiveTab('tracking')} className="hover:text-[#9e7127] transition-colors">
+              <button onClick={() => handleFooterNav('tracking')} className="hover:text-[#9e7127] transition-colors cursor-pointer">
                 Track Application Status
               </button>
             </li>
             <li>
-              <button onClick={() => setActiveTab('about')} className="hover:text-[#9e7127] transition-colors">
+              <button onClick={() => handleFooterNav('about')} className="hover:text-[#9e7127] transition-colors cursor-pointer">
                 About FileWise
               </button>
             </li>
             <li>
-              <button onClick={() => setActiveTab('contact')} className="hover:text-[#9e7127] transition-colors">
+              <button onClick={() => handleFooterNav('contact')} className="hover:text-[#9e7127] transition-colors cursor-pointer">
                 Contact Us
               </button>
             </li>
             <li>
               <button 
-                onClick={() => setActiveTab('competitions')} 
-                className="hover:text-[#9e7127] transition-colors flex items-center gap-1.5 font-bold text-[#8a5716]"
+                onClick={() => handleFooterNav('competitions')} 
+                className="hover:text-[#9e7127] transition-colors flex items-center gap-1.5 font-bold text-[#8a5716] cursor-pointer"
               >
                 <span>Competitions (Rugby 2027)</span>
                 <span className="text-[9px] uppercase px-1.5 py-0.2 bg-[#fbf4e8] border border-[#dfbe87] rounded">1 Active</span>
               </button>
             </li>
             <li>
-              <button onClick={() => setActiveTab('terms')} className="hover:text-[#9e7127] transition-colors">
+              <button onClick={() => handleFooterNav('terms')} className="hover:text-[#9e7127] transition-colors cursor-pointer">
                 Terms &amp; Conditions
               </button>
             </li>
             <li>
               <button 
-                onClick={() => setActiveTab('payments')} 
-                className="hover:text-[#9e7127] transition-colors flex items-center gap-1.5 font-bold text-[#b48332]"
+                onClick={() => handleFooterNav('payments')} 
+                className="hover:text-[#9e7127] transition-colors flex items-center gap-1.5 font-bold text-[#b48332] cursor-pointer"
               >
                 <CreditCard className="w-3.5 h-3.5" />
                 <span>Client Payments (EFT &amp; PayPal)</span>
