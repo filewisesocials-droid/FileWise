@@ -57,6 +57,18 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenPayment }) =
               </button>
             </li>
             <li>
+              <a
+                href="/countries"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleFooterNav('countries');
+                }}
+                className="hover:text-[#9e7127] transition-colors font-semibold text-[#2b241d] cursor-pointer"
+              >
+                Worldwide Visa Countries Directory
+              </a>
+            </li>
+            <li>
               <button onClick={() => handleFooterNav('services')} className="hover:text-[#9e7127] transition-colors cursor-pointer">
                 SA Document Legalisation
               </button>
@@ -206,6 +218,17 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenPayment }) =
           </div>
 
           <div className="flex items-center gap-4 flex-wrap justify-center">
+            <a
+              href="/countries"
+              onClick={(e) => {
+                e.preventDefault();
+                handleFooterNav('countries');
+              }}
+              className="hover:text-[#9e7127] transition-colors font-semibold"
+            >
+              Visa Countries
+            </a>
+            <span className="text-[#c8a46b]">•</span>
             <button onClick={() => setActiveTab('about')} className="hover:text-[#9e7127] transition-colors">About Us</button>
             <span className="text-[#c8a46b]">•</span>
             <button onClick={() => setActiveTab('payments')} className="hover:text-[#9e7127] transition-colors font-semibold text-[#7a5418]">Payments</button>

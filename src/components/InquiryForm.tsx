@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Send, CheckCircle2, ShieldCheck, FileCheck2, Globe, Building2, MessageCircle, Mail, Copy, Check, ExternalLink, Stamp, PlaneTakeoff, CreditCard } from 'lucide-react';
 import { motion } from 'motion/react';
 import { COUNTRIES } from '../data/countries';
+import { WORLDWIDE_DESTINATIONS } from '../data/worldwideVisaCountries';
 import { DOCUMENT_TYPES } from '../data/documents';
 import { PayPalButton, PayPalLogo } from './PayPalButton';
 
@@ -17,6 +18,12 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({
   const [inquiryCategory, setInquiryCategory] = useState<'VISA' | 'LEGALISATION'>('VISA');
   const [destCode, setDestCode] = useState(initialDestCode === 'ZA' ? 'AE' : initialDestCode);
   const [selectedDocIds, setSelectedDocIds] = useState<string[]>(['degree_diploma']);
+
+  useEffect(() => {
+    if (initialDestCode && initialDestCode !== 'ZA') {
+      setDestCode(initialDestCode);
+    }
+  }, [initialDestCode]);
   
   // Contact details
   const [fullName, setFullName] = useState('');
@@ -52,7 +59,20 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({
     }
   };
 
-  const destCountry = COUNTRIES.find(c => c.code === destCode) || COUNTRIES[0];
+  const allInquiryDestinations = useMemo(() => {
+    return WORLDWIDE_DESTINATIONS.map(d => ({
+      code: d.code,
+      name: d.name,
+      flag: d.flag,
+      visaStatus: d.visaStatus,
+    })).sort((a, b) => a.name.localeCompare(b.name));
+  }, []);
+
+  const destCountry =
+    allInquiryDestinations.find(c => c.code === destCode) ||
+    COUNTRIES.find(c => c.code === destCode) ||
+    allInquiryDestinations[0] ||
+    COUNTRIES[0];
   const selectedDocsText = selectedDocIds
     .map(id => DOCUMENT_TYPES.find(d => d.id === id)?.name)
     .filter(Boolean)
@@ -350,7 +370,7 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({
                       onChange={(e) => setDestCode(e.target.value)}
                       className="w-full bg-[#fbf9f5] border border-[#c8a46b]/40 text-[#2b241d] rounded-xl px-3.5 py-2.5 text-sm font-bold focus:outline-none focus:border-[#b48332] cursor-pointer"
                     >
-                      {COUNTRIES.filter(c => c.code !== 'ZA').map(c => (
+                      {allInquiryDestinations.map(c => (
                         <option key={`inq-dest-${c.code}`} value={c.code}>
                           {c.flag} {c.name} Visa Assistance
                         </option>

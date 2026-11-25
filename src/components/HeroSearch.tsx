@@ -6,9 +6,10 @@ import { calculateRequirement } from '../data/documents';
 
 interface HeroSearchProps {
   onStartInquiry: (destCode: string) => void;
+  onBrowseCountries?: () => void;
 }
 
-export const HeroSearch: React.FC<HeroSearchProps> = ({ onStartInquiry }) => {
+export const HeroSearch: React.FC<HeroSearchProps> = ({ onStartInquiry, onBrowseCountries }) => {
   const [destCode, setDestCode] = useState('AE');
 
   const originCountry = useMemo(() => getCountryByCode('ZA'), []);
@@ -166,6 +167,22 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ onStartInquiry }) => {
                   <span>Start Outbound Visa Inquiry for {destCountry.name}</span>
                 </motion.button>
               </motion.div>
+
+              {onBrowseCountries && (
+                <div className="pt-1 text-right">
+                  <a
+                    href="/countries"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onBrowseCountries();
+                    }}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#8a5716] hover:text-[#2b241d] transition-colors"
+                  >
+                    <span>Browse outbound visa destinations for SA passport holders</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              )}
 
             </div>
           </motion.div>

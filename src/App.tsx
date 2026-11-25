@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Header } from './components/Header';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Header, type AppTab } from './components/Header';
 import { HeroSearch } from './components/HeroSearch';
 import { CountryDirectory } from './components/CountryDirectory';
 import { InquiryForm } from './components/InquiryForm';
@@ -14,14 +14,46 @@ import { Footer } from './components/Footer';
 import { PaymentModal } from './components/PaymentModal';
 import { CompetitionPromoModal } from './components/CompetitionPromoModal';
 import { CompetitionPage } from './components/CompetitionPage';
+import { WorldwideVisaCountriesPage } from './components/WorldwideVisaCountriesPage';
+
+function getInitialTab(): AppTab {
+  if (typeof window !== 'undefined') {
+    const normalized = window.location.pathname.replace(/\/+$/, '');
+    if (normalized === '/countries') {
+      return 'countries';
+    }
+  }
+  return 'search';
+}
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'search' | 'inquiry' | 'tracking' | 'services' | 'faq' | 'about' | 'terms' | 'contact' | 'payments' | 'competitions' | 'competition'>('search');
-  
+  const [activeTab, setActiveTabState] = useState<AppTab>(getInitialTab);
+
   const [inquiryDest, setInquiryDest] = useState('AE');
   const [activeTrackId, setActiveTrackId] = useState('FW-98214');
   const [isPaymentOpen, setIsPaymentOpen] = useState(false);
   const [isPromoOpen, setIsPromoOpen] = useState(true);
+
+  const setActiveTab = useCallback((tab: AppTab) => {
+    setActiveTabState(tab);
+    if (typeof window !== 'undefined') {
+      const currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
+      const targetPath = tab === 'countries' ? '/countries' : '/';
+      if (currentPath !== targetPath) {
+        window.history.pushState({ tab }, '', targetPath);
+      }
+    }
+  }, []);
+
+  // Sync browser back/forward buttons with /countries route
+  useEffect(() => {
+    const handlePopState = () => {
+      const normalized = window.location.pathname.replace(/\/+$/, '');
+      setActiveTabState(normalized === '/countries' ? 'countries' : 'search');
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   // Automatically scroll to top whenever navigation tab changes
   useEffect(() => {
@@ -81,10 +113,12 @@ export default function App() {
           <>
             <HeroSearch
               onStartInquiry={handleStartInquiry}
+              onBrowseCountries={() => setActiveTab('countries')}
             />
 
             <CountryDirectory
               onSelectCountryForInquiry={handleStartInquiry}
+              onBrowseAllCountries={() => setActiveTab('countries')}
             />
 
             <ServicesOverview
@@ -93,6 +127,13 @@ export default function App() {
 
             <FaqSection />
           </>
+        )}
+
+        {activeTab === 'countries' && (
+          <WorldwideVisaCountriesPage
+            onStartInquiry={handleStartInquiry}
+            onNavigate={setActiveTab}
+          />
         )}
 
         {activeTab === 'inquiry' && (

@@ -6,9 +6,13 @@ import { Country } from '../types';
 
 interface CountryDirectoryProps {
   onSelectCountryForInquiry?: (countryCode: string) => void;
+  onBrowseAllCountries?: () => void;
 }
 
-export const CountryDirectory: React.FC<CountryDirectoryProps> = ({ onSelectCountryForInquiry }) => {
+export const CountryDirectory: React.FC<CountryDirectoryProps> = ({
+  onSelectCountryForInquiry,
+  onBrowseAllCountries,
+}) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedRegion, setSelectedRegion] = useState<string>('ALL');
   const [hagueFilter, setHagueFilter] = useState<'ALL' | 'HAGUE' | 'NON_HAGUE'>('ALL');
@@ -153,6 +157,21 @@ export const CountryDirectory: React.FC<CountryDirectoryProps> = ({ onSelectCoun
           <p className="text-[#5c5044] text-sm mt-1 font-sans">
             Search your destination nation below to review consular guidance, visa category preparation, and processing estimates for South African travelers.
           </p>
+          {onBrowseAllCountries && (
+            <div className="mt-3">
+              <a
+                href="/countries"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onBrowseAllCountries();
+                }}
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#8a5716] hover:text-[#2b241d] underline underline-offset-4 transition-colors"
+              >
+                <span>View Countries We Assist With (SA Passport Visa Destinations &amp; A&ndash;Z Index)</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          )}
         </div>
 
         {/* Search & Filter Bar */}

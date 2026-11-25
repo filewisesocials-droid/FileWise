@@ -1,10 +1,24 @@
 import React, { useState } from 'react';
-import { FileText, Menu, X, Building2, Mail, ShieldCheck, Globe, CreditCard, Trophy } from 'lucide-react';
+import { FileText, Menu, X, Building2, Mail, ShieldCheck, Globe, CreditCard, Trophy, Compass } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
+export type AppTab =
+  | 'search'
+  | 'countries'
+  | 'inquiry'
+  | 'tracking'
+  | 'services'
+  | 'faq'
+  | 'about'
+  | 'terms'
+  | 'contact'
+  | 'payments'
+  | 'competitions'
+  | 'competition';
+
 interface HeaderProps {
-  activeTab: 'search' | 'inquiry' | 'tracking' | 'services' | 'faq' | 'about' | 'terms' | 'contact' | 'payments' | 'competitions' | 'competition';
-  setActiveTab: (tab: 'search' | 'inquiry' | 'tracking' | 'services' | 'faq' | 'about' | 'terms' | 'contact' | 'payments' | 'competitions' | 'competition') => void;
+  activeTab: AppTab;
+  setActiveTab: (tab: AppTab) => void;
   onOpenQuickTrack?: (trackId: string) => void;
   onOpenPayment?: () => void;
 }
@@ -73,10 +87,10 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1.5">
+          <nav className="hidden xl:flex items-center gap-1">
             <button
               onClick={() => handleNavClick('search')}
-              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all whitespace-nowrap shrink-0 cursor-pointer ${
                 activeTab === 'search'
                   ? 'bg-[#b48332] text-white font-bold shadow-xs border border-[#9a6d23]'
                   : 'text-[#5c5044] hover:text-[#915e19] hover:bg-[#f6eee2] border border-transparent hover:border-[#c8a46b]/30'
@@ -86,9 +100,25 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
               <span>Outbound Visas</span>
             </button>
 
+            <a
+              href="/countries"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick('countries');
+              }}
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all whitespace-nowrap shrink-0 ${
+                activeTab === 'countries'
+                  ? 'bg-[#b48332] text-white font-bold shadow-xs border border-[#9a6d23]'
+                  : 'text-[#5c5044] hover:text-[#915e19] hover:bg-[#f6eee2] border border-transparent hover:border-[#c8a46b]/30'
+              }`}
+            >
+              <Compass className="w-3.5 h-3.5" />
+              <span>Visa Countries</span>
+            </a>
+
             <button
               onClick={() => handleNavClick('services')}
-              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all whitespace-nowrap shrink-0 cursor-pointer ${
                 activeTab === 'services'
                   ? 'bg-[#b48332] text-white font-bold shadow-xs border border-[#9a6d23]'
                   : 'text-[#5c5044] hover:text-[#915e19] hover:bg-[#f6eee2] border border-transparent hover:border-[#c8a46b]/30'
@@ -101,7 +131,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             <button
               onClick={() => handleNavClick('competitions')}
               id="nav-competitions-btn"
-              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all whitespace-nowrap shrink-0 cursor-pointer ${
                 activeTab === 'competitions' || activeTab === 'competition'
                   ? 'bg-[#b48332] text-white font-bold shadow-xs border border-[#9a6d23]'
                   : 'text-[#8a5716] bg-[#fbf4e8]/60 hover:bg-[#fbf4e8] border border-[#dfbe87]/70 hover:border-[#b48332]'
@@ -113,7 +143,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
 
             <button
               onClick={() => handleNavClick('payments')}
-              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all whitespace-nowrap shrink-0 cursor-pointer ${
                 activeTab === 'payments'
                   ? 'bg-[#b48332] text-white font-bold shadow-xs border border-[#9a6d23]'
                   : 'text-[#5c5044] hover:text-[#915e19] hover:bg-[#f6eee2] border border-transparent hover:border-[#c8a46b]/30'
@@ -125,7 +155,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
 
             <button
               onClick={() => handleNavClick('about')}
-              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all whitespace-nowrap shrink-0 cursor-pointer ${
                 activeTab === 'about'
                   ? 'bg-[#b48332] text-white font-bold shadow-xs border border-[#9a6d23]'
                   : 'text-[#5c5044] hover:text-[#915e19] hover:bg-[#f6eee2] border border-transparent hover:border-[#c8a46b]/30'
@@ -137,7 +167,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
 
             <button
               onClick={() => handleNavClick('contact')}
-              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all whitespace-nowrap shrink-0 cursor-pointer ${
                 activeTab === 'contact'
                   ? 'bg-[#b48332] text-white font-bold shadow-xs border border-[#9a6d23]'
                   : 'text-[#5c5044] hover:text-[#915e19] hover:bg-[#f6eee2] border border-transparent hover:border-[#c8a46b]/30'
@@ -149,7 +179,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
 
             <button
               onClick={() => handleNavClick('terms')}
-              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all whitespace-nowrap shrink-0 cursor-pointer ${
                 activeTab === 'terms'
                   ? 'bg-[#b48332] text-white font-bold shadow-xs border border-[#9a6d23]'
                   : 'text-[#5c5044] hover:text-[#915e19] hover:bg-[#f6eee2] border border-transparent hover:border-[#c8a46b]/30'
@@ -163,14 +193,14 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               onClick={() => handleNavClick('inquiry')}
-              className="ml-2 bg-[#b48332] hover:bg-[#9f7228] text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-sm border border-[#9a6d23] flex items-center gap-2 cursor-pointer"
+              className="ml-1.5 bg-[#b48332] hover:bg-[#9f7228] text-white text-xs font-bold px-3.5 py-2.5 rounded-xl transition-all shadow-sm border border-[#9a6d23] flex items-center gap-2 whitespace-nowrap shrink-0 cursor-pointer"
             >
               <span>Submit Inquiry</span>
             </motion.button>
           </nav>
 
           {/* Mobile Menu Button */}
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex xl:hidden items-center gap-2">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2.5 rounded-xl bg-white hover:bg-[#f8f2e6] text-[#2b241d] transition-colors border border-[#c8a46b]/50 shadow-2xs"
@@ -191,7 +221,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="md:hidden border-t border-[#c8a46b]/30 bg-[#fdfcf9] px-4 pt-3 pb-6 space-y-2 shadow-lg overflow-hidden"
+            className="xl:hidden border-t border-[#c8a46b]/30 bg-[#fdfcf9] px-4 pt-3 pb-6 space-y-2 shadow-lg overflow-hidden"
           >
             <button
               onClick={() => handleNavClick('search')}
@@ -202,6 +232,20 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
               <Globe className="w-4 h-4" />
               <span>Outbound Visa Countries</span>
             </button>
+
+            <a
+              href="/countries"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick('countries');
+              }}
+              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all border ${
+                activeTab === 'countries' ? 'bg-[#b48332] text-white border-[#9a6d23]' : 'text-[#4c4035] hover:bg-[#f6eee2] border-transparent'
+              }`}
+            >
+              <Compass className="w-4 h-4" />
+              <span>Countries We Assist With (Worldwide Visas)</span>
+            </a>
 
             <button
               onClick={() => handleNavClick('services')}
